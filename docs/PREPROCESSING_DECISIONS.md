@@ -59,6 +59,18 @@ vocabulary. It produced zero pure-numeric vocabulary keys and 737 vocabulary
 keys containing at least one digit. These are preprocessing resource
 measurements, not model accuracy results.
 
+## Paper-method differences
+
+Phase 6 uses raw count frequencies as the primary LDA input, whereas the
+reference paper describes TF-IDF input. This project records that difference
+explicitly. LDA topic count is selected from `{10, 20, 30, 40}` using
+validation macro F1 only. Doc2Vec is trained only on the training split; its
+validation and test representations are inferred afterward, rather than
+training the embedding model on all splits.
+For the CPU run, Doc2Vec uses the first 500 normalized tokens of each
+document and five epochs; this engineering truncation is recorded as an
+extension difference.
+
 ## Reproducibility
 
 Preprocessing itself has no random operation. Model and split-level seeds are
