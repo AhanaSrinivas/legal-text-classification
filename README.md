@@ -19,12 +19,12 @@ This project reproduces and extends the methodology investigated by Krithika Iye
 | Component | Reference Paper (Iyer 2020) | Our Implementation & Reproduction | Status / Notes |
 |:---|:---|:---|:---|
 | **Dataset Source** | `textacy` scrape (~8,200 opinions) | LexGLUE SCOTUS (`coastalcph/lex_glue`) | Verified public benchmark, non-leaking splits |
-| **Splitting Method** | Random unseeded split | Chronological split recorded by LexGLUE metadata (1946–1982 train, 1982–1991 val, 1991–2016 test) | Intended to evaluate temporal generalization; the exact boundary dates are attributed to the LexGLUE dataset card, not the paper |
+| **Splitting Method** | Random unseeded split; split details not specified in the paper | Chronological split recorded by LexGLUE metadata (boundary years are source-dataset metadata; verify against `results/dataset_info.json`) | Temporal ordering is documented; no claim that it eliminates look-ahead bias |
 | **Class Taxonomy** | 15 issue areas / 279 issue codes | 13 active SCDB issue areas (0-12) | Class 14 ('Private Action') is absent from the adopted LexGLUE SCOTUS corpus; see `docs/DATASET_DECISION.md` |
 | **Classical Baselines**| None | TF-IDF + Logistic Regression, TF-IDF + LinearSVC | Essential classical benchmarks |
 | **Topic Modeling** | LDA (TF-IDF input) + Logistic Regression | LDA (Count input, topic sweep $K \in \{10,20,30,40\}$) + LR | Primary input uses count frequencies; TF-IDF difference noted |
 | **Document Vectors** | Doc2Vec + Logistic Regression | Doc2Vec (PV-DBOW / PV-DM, fit strictly on train) + LR | Exact inference hygiene on val/test |
-| **Transformer** | Failed (Ran out of memory on Colab; no results) | Fine-tuned `nlpaueb/legal-bert-base-uncased` (planned full GPU run) | Only a 20-sample CPU smoke test is currently recorded; it is not an experimental result |
+| **Transformer** | Failed (Ran out of memory on Colab; no results) | Fine-tuned `nlpaueb/legal-bert-base-uncased` | Implemented GPU run; metadata and predictions are in `results/` |
 | **Interactive Demo**| None | Streamlit Web Application (`app.py`) | Interactive opinion classifier with probability breakdown |
 | **Test Suite** | None | Pytest unit test suite (`tests/`) | Validates data hygiene, preprocessing, leakage, and models |
 
@@ -54,10 +54,7 @@ legal-text-classification/
 ├── src/                      # Reusable modular source code
 │   ├── data.py               # Dataset loading, schema validation, duplicate audit
 │   ├── preprocess.py         # Legal text normalization and train-only vectorizer fitting
-│   ├── models_classical.py   # (planned) Baseline Logistic Regression and LinearSVC
-│   ├── models_topic.py       # (planned) LDA and Doc2Vec models
-│   ├── models_transformer.py # (planned) Transformer fine-tuning module
-│   ├── evaluate.py           # (planned) Unified evaluation routines
+│   ├── evaluate.py           # Shared metrics, reports, and confusion matrices
 │   └── utils.py              # Hardware detection, seeds, and metric I/O
 ├── scripts/                  # Standalone execution stages
 │   ├── 01_run_eda.py         # Dataset validation & EDA report
@@ -70,6 +67,7 @@ legal-text-classification/
 │   ├── majority_baseline.json# Majority class baseline metrics
 │   ├── figures/              # Class distribution and token length plots
 │   ├── preprocessing_benchmark.json # Phase 4 fit-time and peak-RAM measurement
+│   ├── metrics.csv          # Validation/test aggregate metrics
 │   └── smoke/               # Ignored CPU smoke-test outputs
 ├── docs/                     # Documentation and audit logs
 │   ├── Guidelines.pdf        # University guidelines
@@ -80,6 +78,47 @@ legal-text-classification/
 │   └── COLAB_RUNBOOK.md      # Instructions for Colab GPU execution
 └── tests/                    # Pytest test suite
 ```
+
+## Exact model configurations used so far
+
+The settings below are the executed CPU-feasible settings, not a claim that
+they are optimal. The reduced settings mean the Logistic Regression versus
+LinearSVC comparison is not a clean algorithm comparison: Logistic Regression
+used liblinear one-vs-rest with `max_iter=5` and `tol=0.5`, so it is likely
+under-converged.
+
+- TF-IDF: `max_features=10_000`, word/bigram `(1, 2)`, `min_df=2`,
+  `max_df=0.98`, `sublinear_tf=True`, `float32`, numeric tokens dropped.
+- Logistic Regression: `solver="saga"`, liblinear one-vs-rest was the
+  originally documented configuration but the executed script uses
+  `solver="saga"`, `C in {0.1, 1.0}`, `class_weight=None`, `max_iter=5`,
+  `tol=0.5`, `random_state=42`.
+- LinearSVC: `loss="squared_hinge"`, `C in {0.01, 0.1, 1.0}`,
+  `random_state=42`.
+- LDA: raw counts, `max_features=500`, `min_df=5`, `max_df=0.98`,
+  `max_iter=2`, `learning_method="batch"`, `K in {10, 20, 30, 40}`.
+  The selected `K=40` is at the edge of the sweep grid.
+- Doc2Vec: PV-DM (`dm=1`), `vector_size=100`, `window=5`, `min_count=2`,
+  `epochs=5`, one worker, first 500 normalized tokens only, seed 42.
+
+Selected hyperparameters and validation scores are saved in
+`results/classical_selection.json` and `results/topic_selection.json`.
+Phases 9–12 are not yet done.
+
+## Reproduce so far (PowerShell)
+
+```powershell
+& "C:\Program Files\Python313\python.exe" -m venv venv
+& ".\venv\Scripts\python.exe" -m pip install -r requirements.txt
+& ".\venv\Scripts\python.exe" scripts\01_run_eda.py
+& ".\venv\Scripts\python.exe" scripts\benchmark_preprocessing.py
+& ".\venv\Scripts\python.exe" scripts\train_classical.py
+& ".\venv\Scripts\python.exe" scripts\train_topic.py
+& ".\venv\Scripts\python.exe" -m pytest tests
+```
+
+The Transformer outputs come from the completed Colab GPU run and are not
+reproducible on this CPU-only machine.
 
 ---
 
