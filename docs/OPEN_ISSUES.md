@@ -48,8 +48,6 @@ This document records ambiguities, discrepancies, and verified constraints ident
 
 ### Issue 4: Dataset Candidate Verification (LexGLUE SCOTUS)
 - **Source**: Candidate dataset proposed for reproduction and extension.
-- **Current Status**: **UNVERIFIED, to be confirmed in Phase 3**.
+- **Current Status**: **RESOLVED**; verified in `results/dataset_info.json` and `results/eda_stats.json`.
 - **Items to Verify**:
-  - Exact split sizes (train, validation, test) are unverified until loaded in Phase 3.
-  - Number of target classes and label schema alignment with SCDB issue areas are unverified until loaded in Phase 3.
-  - Column schema, missing values, duplicates, and token length distribution must be verified programmatically and saved directly to `results/dataset_info.json`.
+  - Exact split sizes, target classes, schema, missing values, duplicates, and measured token statistics are recorded in `results/dataset_info.json` and `results/eda_stats.json`.

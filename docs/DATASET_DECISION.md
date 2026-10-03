@@ -10,7 +10,7 @@
 ---
 
 ## 2. Dataset Splitting Methodology & Comparison with Reference Paper
-- **LexGLUE SCOTUS Split Method**: **Chronological Partitioning**.
+- **LexGLUE SCOTUS Split Method**: **Chronological Partitioning**, as described by the [LexGLUE SCOTUS dataset card](https://huggingface.co/datasets/coastalcph/lex_glue).
   - **Training split**: 5,000 cases decided between **1946 and 1982**.
   - **Validation split (dev)**: 1,400 cases decided between **1982 and 1991**.
   - **Test split**: 1,400 cases decided between **1991 and 2016**.
@@ -37,7 +37,7 @@
   12. Federal Taxation
   13. Miscellaneous
   14. Private Action
-- **Zero-Example Issue Area**: In the modern SCDB time window (1946–2016) used for LexGLUE SCOTUS, **Class 14 ('Private Action') has zero cases** across the entire corpus. In the reference paper (Iyer 2020, Table 2), the author likewise observed `# Docs: 0` for Private Action.
+- **Zero-Example Issue Area**: The [SCDB codebook](https://scdb.wustl.edu/documentation.php?var=version) defines Class 14 as 'Private Action'. The adopted LexGLUE SCOTUS corpus has no active Class 14 examples, as recorded in `results/dataset_info.json`; the reference paper (Iyer 2020, Table 2) likewise observed `# Docs: 0` for Private Action.
 - Consequently, `coastalcph/lex_glue` encodes exactly **13 active classes** with raw string IDs `'1'` through `'13'`, mapped to zero-indexed integers `0` through `12`.
 
 ---
@@ -94,7 +94,7 @@
 
 ## 5. Measured Token Statistics & Opening Text Observations
 
-### A. Subword Token Statistics (`nlpaueb/legal-bert-base-uncased`, N=500 random train decisions)
+### A. Subword Token Statistics (`nlpaueb/legal-bert-base-uncased`, N=500 random train decisions; measured by `scripts/01_run_eda.py`)
 - **Minimum**: 84 tokens
 - **25th Percentile**: 2,334.0 tokens
 - **Median**: **5,470.5 tokens**

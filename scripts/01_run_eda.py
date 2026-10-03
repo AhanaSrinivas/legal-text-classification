@@ -260,7 +260,20 @@ def run_eda():
     plt.legend(fontsize=10)
     plt.tight_layout()
     plt.savefig("results/figures/token_length_histogram.png", dpi=300)
-    # Also save as document_length_histogram.png to keep filename compatibility
+
+    # Figure 3: WORD-LENGTH HISTOGRAM, kept separate from tokenizer statistics.
+    word_counts_train = all_word_counts["train"]
+    plt.figure(figsize=(10, 5))
+    sns.histplot(word_counts_train, bins=40, kde=True, color="darkorange", stat="density")
+    plt.axvline(length_stats["train"]["word_count_median"], color="darkgreen", linestyle=":",
+                linewidth=2.0,
+                label=f"Median Word Length = {int(length_stats['train']['word_count_median']):,} Words")
+    plt.title("LexGLUE SCOTUS: Word Length Distribution (train split)",
+              fontsize=13, weight="bold")
+    plt.xlabel("Whitespace-delimited Words per Opinion (train split)", fontsize=12)
+    plt.ylabel("Density", fontsize=12)
+    plt.legend(fontsize=10)
+    plt.tight_layout()
     plt.savefig("results/figures/document_length_histogram.png", dpi=300)
     plt.close()
 

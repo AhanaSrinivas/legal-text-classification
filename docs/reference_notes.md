@@ -68,11 +68,11 @@ To create a rigorous, university-level, defensible project:
 
 | Component | Paper Method | Our Reproduction & Planned Extension | Rationale |
 | :--- | :--- | :--- | :--- |
-| **Dataset** | `textacy` scrape (~8,200 docs) | LexGLUE SCOTUS candidate (`coastalcph/lex_glue`) [UNVERIFIED, to be confirmed in Phase 3] | Public benchmark with standardized train/val/test splits to eliminate leakage and enable exact reproducibility. |
+| **Dataset** | `textacy` scrape (~8,200 docs) | LexGLUE SCOTUS (`coastalcph/lex_glue`) [VERIFIED in `results/dataset_info.json`] | Public benchmark with standardized train/validation/test splits and the duplicate audit recorded in `results/eda_stats.json`. |
 | **Baselines** | None (jumped straight to LDA) | TF-IDF + Logistic Regression, TF-IDF + LinearSVC [PLANNED] | Essential classical ML baselines required for sound empirical comparison. |
 | **Topic Modeling** | LDA (gensim) + LR | LDA (sklearn/gensim) + LR with topic sweep [PLANNED] | Systematically sweeps number of latent topics ($K \in \{10, 20, 30, 40\}$) tuned on validation set. |
 | **Document Vectors** | Doc2Vec (gensim) + LR | Doc2Vec (`gensim.models.Doc2Vec`) + LR [PLANNED] | Rigorous split hygiene: Doc2Vec trained strictly on train split; vectors inferred for val/test. |
-| **Transformer** | Failed (OOM, checkpoint not specified) | `nlpaueb/legal-bert-base-uncased` fine-tuning [PLANNED] | Memory-safe training on GPU/CPU with honest 512-token truncation analysis. |
+| **Transformer** | Failed (OOM, checkpoint not specified) | `nlpaueb/legal-bert-base-uncased` fine-tuning [PLANNED] | Only the 20-sample CPU smoke test is recorded; full GPU training remains planned. |
 | **Evaluation** | Accuracy + partial F1 table | Unified evaluation pipeline [PLANNED] | Macro & weighted Precision/Recall/F1, Confusion Matrix, Error Analysis on test split. |
 | **Interactive Demo**| None | Streamlit Application [PLANNED] | Real-time prediction, probability breakdown, sample opinion loader, token length warning. |
 | **Unit Testing** | None | Pytest test suite [PLANNED] | Tests schema integrity, preprocessing, data leakage prevention, model training, evaluation logic. |

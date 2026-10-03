@@ -2,7 +2,7 @@
   "dataset_name": "coastalcph/lex_glue",
   "config_name": "scotus",
   "split_method": "Chronological (Train: 1946-1982, Validation: 1982-1991, Test: 1991-2016 per LexGLUE Chalkidis et al. 2022)",
-  "load_timestamp": "2026-10-03T18:48:08.608438",
+  "load_timestamp": "2026-10-03T19:57:24.337635",
   "splits": {
     "train": 5000,
     "test": 1400,

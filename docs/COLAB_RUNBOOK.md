@@ -5,7 +5,7 @@
 ---
 
 ## 1. Overview
-Supreme Court decisions are long, and fine-tuning BERT on 5,000 training examples takes ~15–25 minutes on a free Google Colab T4 GPU (or Kaggle GPU), whereas CPU execution is slow.
+Supreme Court decisions are long, and CPU execution is slow. GPU runtime for the full run is **UNMEASURED** in this repository; record the actual elapsed time in `results/transformer_run_info.json` after the team completes the run.
 
 This runbook explains how to run `scripts/04_train_transformer.py` on Google Colab / Kaggle, download the predictions and run metadata, and place them directly in your local `results/` folder.
 
