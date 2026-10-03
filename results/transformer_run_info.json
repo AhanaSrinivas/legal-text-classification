@@ -1,0 +1,33 @@
+{
+  "model_name": "nlpaueb/legal-bert-base-uncased",
+  "smoke_test": true,
+  "is_smoke_test": true,
+  "status_note": "WARNING: This run is a 20-sample CPU SMOKE TEST for code verification only. It is NOT a real experimental result and must NOT be used for reporting. The full GPU training run will overwrite this and transformer_predictions.npz.",
+  "max_length": 512,
+  "epochs": 1,
+  "batch_size": 8,
+  "gradient_accumulation_steps": 2,
+  "effective_batch_size": 16,
+  "learning_rate": 2e-05,
+  "seed": 42,
+  "device": "cpu",
+  "hardware": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.13.9 (tags/v3.13.9:8183fa5, Oct 14 2025, 14:09:13) [MSC v.1944 64 bit (AMD64)]",
+    "cpu": "Intel64 Family 6 Model 142 Stepping 12, GenuineIntel",
+    "cpu_count_logical": 8,
+    "cpu_count_physical": 4,
+    "total_ram_gb": 7.81,
+    "cuda_available": false,
+    "gpu_count": 0,
+    "gpu_name": "None (CPU only)",
+    "gpu_memory_gb": 0.0
+  },
+  "elapsed_seconds": 825.89,
+  "validation_accuracy": 0.0,
+  "validation_macro_f1": 0.0,
+  "validation_weighted_f1": 0.0,
+  "test_accuracy": 0.1,
+  "test_macro_f1": 0.1,
+  "test_weighted_f1": 0.1
+}

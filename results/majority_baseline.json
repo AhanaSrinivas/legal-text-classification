@@ -1,0 +1,13 @@
+{
+  "train_majority_class_id": 7,
+  "train_majority_class_name": "Economic Activity",
+  "train_majority_count": 1043,
+  "train_majority_pct": 20.86,
+  "test_accuracy": 0.18571428571428572,
+  "test_macro_f1": 0.024096385542168676,
+  "test_weighted_f1": 0.05817555938037866,
+  "test_majority_class_id": 0,
+  "test_majority_class_name": "Criminal Procedure",
+  "test_majority_count": 372,
+  "test_empirical_majority_accuracy": 0.26571428571428574
+}

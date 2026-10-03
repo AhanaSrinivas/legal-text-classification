@@ -1,0 +1,223 @@
+{
+  "schema_report": {
+    "train": {
+      "num_rows": 5000,
+      "columns": [
+        "text",
+        "label"
+      ],
+      "null_text_count": 0,
+      "null_label_count": 0,
+      "label_feature": "ClassLabel(names=['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'])"
+    },
+    "validation": {
+      "num_rows": 1400,
+      "columns": [
+        "text",
+        "label"
+      ],
+      "null_text_count": 0,
+      "null_label_count": 0,
+      "label_feature": "ClassLabel(names=['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'])"
+    },
+    "test": {
+      "num_rows": 1400,
+      "columns": [
+        "text",
+        "label"
+      ],
+      "null_text_count": 0,
+      "null_label_count": 0,
+      "label_feature": "ClassLabel(names=['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'])"
+    }
+  },
+  "duplicate_report": {
+    "internal_duplicates": {
+      "train": 0,
+      "validation": 0,
+      "test": 0
+    },
+    "cross_split_duplicates": {
+      "train_validation": 0,
+      "train_test": 0,
+      "validation_test": 0,
+      "total_cross_split_leaks": 0
+    }
+  },
+  "class_distributions": {
+    "train": {
+      "Criminal Procedure": 1011,
+      "Civil Rights": 811,
+      "First Amendment": 423,
+      "Due Process": 193,
+      "Privacy": 45,
+      "Attorneys": 35,
+      "Unions": 255,
+      "Economic Activity": 1043,
+      "Judicial Power": 717,
+      "Federalism": 191,
+      "Interstate Relations": 53,
+      "Federal Taxation": 220,
+      "Miscellaneous": 3
+    },
+    "validation": {
+      "Criminal Procedure": 360,
+      "Civil Rights": 218,
+      "First Amendment": 108,
+      "Due Process": 70,
+      "Privacy": 22,
+      "Attorneys": 35,
+      "Unions": 51,
+      "Economic Activity": 226,
+      "Judicial Power": 165,
+      "Federalism": 83,
+      "Interstate Relations": 14,
+      "Federal Taxation": 38,
+      "Miscellaneous": 10
+    },
+    "test": {
+      "Criminal Procedure": 372,
+      "Civil Rights": 222,
+      "First Amendment": 88,
+      "Due Process": 51,
+      "Privacy": 28,
+      "Attorneys": 17,
+      "Unions": 24,
+      "Economic Activity": 260,
+      "Judicial Power": 200,
+      "Federalism": 83,
+      "Interstate Relations": 15,
+      "Federal Taxation": 37,
+      "Miscellaneous": 3
+    }
+  },
+  "length_statistics_words_by_split": {
+    "train": {
+      "total_documents": 5000,
+      "word_count_min": 19,
+      "word_count_p25": 1966.75,
+      "word_count_median": 4364.5,
+      "word_count_p75": 7933.5,
+      "word_count_p90": 12506.400000000001,
+      "word_count_p95": 16168.500000000002,
+      "word_count_p99": 27353.99000000002,
+      "word_count_max": 88566,
+      "word_count_mean": 5853.5638,
+      "word_count_std": 5905.5906453063235
+    },
+    "validation": {
+      "total_documents": 1400,
+      "word_count_min": 38,
+      "word_count_p25": 4538.0,
+      "word_count_median": 7591.0,
+      "word_count_p75": 11558.5,
+      "word_count_p90": 16185.800000000003,
+      "word_count_p95": 19719.399999999998,
+      "word_count_p99": 28487.709999999995,
+      "word_count_max": 38098,
+      "word_count_mean": 8625.858571428571,
+      "word_count_std": 5788.94555510742
+    },
+    "test": {
+      "total_documents": 1400,
+      "word_count_min": 39,
+      "word_count_p25": 4044.75,
+      "word_count_median": 6883.0,
+      "word_count_p75": 11296.0,
+      "word_count_p90": 17135.4,
+      "word_count_p95": 21075.6,
+      "word_count_p99": 35940.57,
+      "word_count_max": 89379,
+      "word_count_mean": 8687.857857142857,
+      "word_count_std": 7411.0443801663605
+    }
+  },
+  "token_statistics_legal_bert": {
+    "sample_size": 500,
+    "tokenizer": "nlpaueb/legal-bert-base-uncased",
+    "token_count_min": 84,
+    "token_count_p25": 2334.0,
+    "token_count_median": 5470.5,
+    "token_count_p75": 10565.25,
+    "token_count_p90": 15937.60000000001,
+    "token_count_p95": 20569.449999999986,
+    "token_count_p99": 29156.63,
+    "token_count_max": 42884,
+    "token_count_mean": 7308.54,
+    "token_count_std": 6537.281018619285,
+    "pct_docs_exceeding_512_tokens": 93.0,
+    "mean_pct_covered_by_first_512_tokens": 20.478533487201428
+  },
+  "opening_snippets": [
+    {
+      "train_index": 912,
+      "label": "Civil Rights",
+      "snippet": "348 U.S. 540\n75 S.Ct. 509\n99 L.Ed. 624\nLouis SHOMBERG, Petitioner,v.UNITED STATES of America.\nNo. 48.\nArgued March 1, 1955.\nDecided April 4, 1955.\n\nMr.\nAlan Y. Cole, Washington, D.C., for petitioner.\nMr. Gray Thoron, Washington, D.C., for respondent.\nMr. Justice CLARK delivered the opinion of the Co"
+    },
+    {
+      "train_index": 204,
+      "label": "Judicial Power",
+      "snippet": "333 U.S. 591\n68 S.Ct. 715\n92 L.Ed. 898\nCOMMISSIONER OF INTERNAL REVENUEv.SUNNEN.\nNo. 227.\nArgued Dec. 17, 1947.\nDecided April 5, 1948.\n\n[Syllabus from pages 591-593 intentionally omitted]\nMr. Arnold Raum, of Washington, D.C., for petitioner.\nMr. C. Powell Fordyce, of St. Louis, Mo., for respondent.\n"
+    },
+    {
+      "train_index": 2253,
+      "label": "Judicial Power",
+      "snippet": "381 U.S. 357\n85 S.Ct. 1498\n14 L.Ed.2d 443\nThe ATLANTIC REFINING COMPANY, Petitioner,v.FEDERAL TRADE COMMISSION.  The GOODYEAR TIRE & RUBBER COMPANY, Petitioner,  v.  FEDERAL TRADE COMMISSION.\nNos. 292, 296.\nArgued March 30, 1965.\nDecided June 1, 1965.\nRehearing Denied Oct. 11, 1965.\n\nSee 86 S.Ct. 18"
+    }
+  ],
+  "shortest_5_documents": [
+    {
+      "split": "train",
+      "split_index": 4185,
+      "word_count": 19,
+      "char_length": 110,
+      "label_id": 0,
+      "label_name": "Criminal Procedure"
+    },
+    {
+      "split": "validation",
+      "split_index": 486,
+      "word_count": 38,
+      "char_length": 239,
+      "label_id": 6,
+      "label_name": "Unions"
+    },
+    {
+      "split": "validation",
+      "split_index": 1384,
+      "word_count": 39,
+      "char_length": 238,
+      "label_id": 8,
+      "label_name": "Judicial Power"
+    },
+    {
+      "split": "test",
+      "split_index": 1201,
+      "word_count": 39,
+      "char_length": 244,
+      "label_id": 8,
+      "label_name": "Judicial Power"
+    },
+    {
+      "split": "validation",
+      "split_index": 821,
+      "word_count": 45,
+      "char_length": 274,
+      "label_id": 8,
+      "label_name": "Judicial Power"
+    }
+  ],
+  "majority_class_baseline": {
+    "train_majority_class_id": 7,
+    "train_majority_class_name": "Economic Activity",
+    "train_majority_count": 1043,
+    "train_majority_pct": 20.86,
+    "test_accuracy": 0.18571428571428572,
+    "test_macro_f1": 0.024096385542168676,
+    "test_weighted_f1": 0.05817555938037866,
+    "test_majority_class_id": 0,
+    "test_majority_class_name": "Criminal Procedure",
+    "test_majority_count": 372,
+    "test_empirical_majority_accuracy": 0.26571428571428574
+  }
+}

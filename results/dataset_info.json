@@ -1,0 +1,64 @@
+{
+  "dataset_name": "coastalcph/lex_glue",
+  "config_name": "scotus",
+  "split_method": "Chronological (Train: 1946-1982, Validation: 1982-1991, Test: 1991-2016 per LexGLUE Chalkidis et al. 2022)",
+  "load_timestamp": "2026-10-03T18:48:08.608438",
+  "splits": {
+    "train": 5000,
+    "test": 1400,
+    "validation": 1400
+  },
+  "columns": [
+    "text",
+    "label"
+  ],
+  "num_classes": 13,
+  "raw_label_feature_names": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13"
+  ],
+  "label_mapping_to_scdb_names": {
+    "0": "Criminal Procedure",
+    "1": "Civil Rights",
+    "2": "First Amendment",
+    "3": "Due Process",
+    "4": "Privacy",
+    "5": "Attorneys",
+    "6": "Unions",
+    "7": "Economic Activity",
+    "8": "Judicial Power",
+    "9": "Federalism",
+    "10": "Interstate Relations",
+    "11": "Federal Taxation",
+    "12": "Miscellaneous"
+  },
+  "note_on_14th_class": "SCDB defines 14 issue areas. Class 14 ('Private Action') has 0 examples in modern SCDB (1946-2016), resulting in 13 active classes (labels 1-13, indices 0-12).",
+  "library_versions": {
+    "datasets": "5.0.0",
+    "numpy": "2.3.4",
+    "pandas": "2.3.3"
+  },
+  "hardware_at_load": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python_version": "3.13.9 (tags/v3.13.9:8183fa5, Oct 14 2025, 14:09:13) [MSC v.1944 64 bit (AMD64)]",
+    "cpu": "Intel64 Family 6 Model 142 Stepping 12, GenuineIntel",
+    "cpu_count_logical": 8,
+    "cpu_count_physical": 4,
+    "total_ram_gb": 7.81,
+    "cuda_available": false,
+    "gpu_count": 0,
+    "gpu_name": "None (CPU only)",
+    "gpu_memory_gb": 0.0
+  }
+}
