@@ -8,6 +8,7 @@ validation and test text.
 """
 
 from dataclasses import dataclass
+from functools import partial
 import re
 import unicodedata
 from typing import Iterable, List, Sequence
@@ -19,18 +20,26 @@ from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS, CountVectorizer,
 # These words can change the legal meaning of a sentence and must remain.
 PRESERVED_LEGAL_TERMS = frozenset(
     {"not", "no", "nor", "never", "shall", "may", "might", "must", "against",
-     "without", "except", "unless"}
+     "without", "except", "unless", "cannot", "none", "neither", "nothing",
+     "nobody", "nowhere"}
 )
 LEGAL_STOP_WORDS = frozenset(ENGLISH_STOP_WORDS.difference(PRESERVED_LEGAL_TERMS))
 _WHITESPACE = re.compile(r"\s+")
+_PURE_NUMERIC_TOKEN = re.compile(r"^\d+$")
 
 
-def normalize_text(text: str) -> str:
-    """Normalize Unicode and whitespace without deleting legally meaningful words."""
+def normalize_text(text: str, drop_numeric_tokens: bool = True) -> str:
+    """Normalize text, optionally dropping whitespace-delimited numeric tokens."""
     if not isinstance(text, str):
         raise TypeError(f"text must be str, got {type(text).__name__}")
     normalized = unicodedata.normalize("NFKC", text)
-    return _WHITESPACE.sub(" ", normalized).strip().lower()
+    normalized = _WHITESPACE.sub(" ", normalized).strip().lower()
+    if drop_numeric_tokens:
+        normalized = " ".join(
+            token for token in normalized.split()
+            if not _PURE_NUMERIC_TOKEN.fullmatch(token)
+        )
+    return normalized
 
 
 def normalize_texts(texts: Iterable[str]) -> List[str]:
@@ -48,6 +57,7 @@ class PreprocessingConfig:
     max_df: float = 0.98
     tfidf_ngram_range: tuple[int, int] = (1, 2)
     count_ngram_range: tuple[int, int] = (1, 1)
+    drop_numeric_tokens: bool = True
 
 
 def build_tfidf_vectorizer(
@@ -56,7 +66,9 @@ def build_tfidf_vectorizer(
     """Create an unfitted TF-IDF vectorizer with legal-aware preprocessing."""
     config = config or PreprocessingConfig()
     return TfidfVectorizer(
-        preprocessor=normalize_text,
+        preprocessor=partial(
+            normalize_text, drop_numeric_tokens=config.drop_numeric_tokens
+        ),
         stop_words=sorted(LEGAL_STOP_WORDS),
         ngram_range=config.tfidf_ngram_range,
         min_df=config.min_df,
@@ -73,7 +85,9 @@ def build_count_vectorizer(
     """Create an unfitted count vectorizer for LDA/topic features."""
     config = config or PreprocessingConfig()
     return CountVectorizer(
-        preprocessor=normalize_text,
+        preprocessor=partial(
+            normalize_text, drop_numeric_tokens=config.drop_numeric_tokens
+        ),
         stop_words=sorted(LEGAL_STOP_WORDS),
         ngram_range=config.count_ngram_range,
         min_df=config.min_df,
@@ -89,7 +103,7 @@ def fit_on_train(vectorizer, train_texts: Sequence[str]):
     Callers should use ``transform_split`` for validation/test data; this
     function intentionally accepts only the training split by convention.
     """
-    if not train_texts:
+    if len(train_texts) == 0:
         raise ValueError("train_texts must contain at least one document")
     if len(train_texts) < 3:
         # Small fixtures cannot support corpus-level pruning thresholds.

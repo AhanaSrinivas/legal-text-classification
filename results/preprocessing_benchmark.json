@@ -1,0 +1,23 @@
+{
+  "seed": 42,
+  "split": "train",
+  "documents": 5000,
+  "requested_ngram_range": [
+    1,
+    2
+  ],
+  "selected_ngram_range": [
+    1,
+    2
+  ],
+  "max_features": 50000,
+  "vocabulary_size": 50000,
+  "fit_wall_time_seconds": 263.132,
+  "peak_process_rss_bytes": 1654968320,
+  "peak_process_rss_gb": 1.541,
+  "fallback": null,
+  "thresholds": {
+    "max_wall_time_seconds": 600,
+    "max_peak_process_rss_gb": 4
+  }
+}

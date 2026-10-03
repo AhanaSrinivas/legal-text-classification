@@ -98,6 +98,20 @@ def evaluate_model(model, dataloader, device):
 def train_transformer(args):
     set_seed(args.seed)
     start_time = time.time()
+    if args.smoke_test:
+        args.output_dir = "models/transformer_smoke"
+        args.results_dir = "results/smoke"
+    else:
+        output_paths = [
+            os.path.join(args.results_dir, "transformer_predictions.npz"),
+            os.path.join(args.results_dir, "transformer_run_info.json"),
+        ]
+        existing_outputs = [path for path in output_paths if os.path.exists(path)]
+        if existing_outputs and not args.overwrite:
+            raise FileExistsError(
+                "Full transformer outputs already exist; pass --overwrite to replace: "
+                + ", ".join(existing_outputs)
+            )
     os.makedirs(args.output_dir, exist_ok=True)
     os.makedirs(args.results_dir, exist_ok=True)
 
@@ -314,6 +328,8 @@ if __name__ == "__main__":
     parser.add_argument("--smoke_eval_size", type=int, default=10)
     parser.add_argument("--force_cpu", action="store_true")
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--overwrite", action="store_true",
+                        help="Allow a full run to replace existing result files")
     parser.add_argument("--output_dir", type=str, default="models/transformer")
     parser.add_argument("--results_dir", type=str, default="results")
 

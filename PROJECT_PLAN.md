@@ -79,7 +79,7 @@ legal-text-classification/
 │   ├── __init__.py
 │   ├── data.py               # Dataset loading, caching, schema validation, duplicate detection
 │   ├── preprocess.py         # Legal-aware text normalization and stopword handling
-│   ├── features.py           # TF-IDF, N-gram extraction, vector transformations
+│   ├── preprocess.py         # Legal-aware normalization and TF-IDF/count vectorizers
 │   ├── models_classical.py   # Logistic Regression and LinearSVC baseline pipelines
 │   ├── models_topic.py       # LDA topic modeling and Doc2Vec embedding pipelines
 │   ├── models_transformer.py # Legal-BERT fine-tuning and inference logic

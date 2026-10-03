@@ -35,6 +35,12 @@ models/*.pt
 models/doc2vec/
 models/lda/
 
+# Local transformer outputs; the tracked files were CPU smoke-test placeholders
+results/transformer_predictions.npz
+results/transformer_run_info.json
+results/smoke/
+models/transformer_smoke/
+
 # Jupyter
 .ipynb_checkpoints/
 

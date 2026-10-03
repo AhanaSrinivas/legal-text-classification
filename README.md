@@ -69,8 +69,8 @@ legal-text-classification/
 │   ├── eda_stats.json        # Class counts and token percentiles
 │   ├── majority_baseline.json# Majority class baseline metrics
 │   ├── figures/              # Class distribution and token length plots
-│   ├── transformer_predictions.npz # Smoke-test placeholder; not reportable until replaced by a GPU run
-│   └── transformer_run_info.json   # Smoke-test provenance; not reportable until replaced by a GPU run
+│   ├── preprocessing_benchmark.json # Phase 4 fit-time and peak-RAM measurement
+│   └── smoke/               # Ignored CPU smoke-test outputs
 ├── docs/                     # Documentation and audit logs
 │   ├── Guidelines.pdf        # University guidelines
 │   ├── OPEN_ISSUES.md        # Ambiguity register
