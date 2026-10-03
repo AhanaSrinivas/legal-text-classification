@@ -4,6 +4,17 @@
       1.0,
       null
     ],
+    "configuration": {
+      "solver": "saga",
+      "max_iter": 5,
+      "tol": 0.5,
+      "c_grid": [
+        0.1,
+        1.0
+      ],
+      "class_weight": null,
+      "random_state": 42
+    },
     "validation": {
       "accuracy": 0.7214285714285714,
       "macro_precision": 0.6635552626478749,

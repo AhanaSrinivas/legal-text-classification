@@ -10,7 +10,7 @@ Classifying legal texts is a core challenge in legal informatics. Legal opinions
 
 This project reproduces and extends the methodology investigated by Krithika Iyer (Stanford CS229, 2020, *Classification of Legal Text*):
 - **Paper Methods**: Evaluates Latent Dirichlet Allocation (LDA) topic mixtures + Logistic Regression, and Paragraph Vector (Doc2Vec) dense embeddings + Logistic Regression.
-- **Our Baselines & Extensions**: Implements strong TF-IDF classical ML baselines (Logistic Regression and LinearSVC), resolves data leakage via strict split isolation, fine-tunes domain-adapted Transformers (`nlpaueb/legal-bert-base-uncased`), provides honest empirical reporting on long-document truncation (512 tokens), and provides an interactive Streamlit application.
+- **Our Baselines & Extensions**: Implements strong TF-IDF classical ML baselines (Logistic Regression and LinearSVC), resolves data leakage via strict split isolation, fine-tunes domain-adapted Transformers (`nlpaueb/legal-bert-base-uncased`), and provides honest empirical reporting on long-document truncation (512 tokens). The Streamlit application remains planned for Phase 9.
 
 ---
 
@@ -25,7 +25,7 @@ This project reproduces and extends the methodology investigated by Krithika Iye
 | **Topic Modeling** | LDA (TF-IDF input) + Logistic Regression | LDA (Count input, topic sweep $K \in \{10,20,30,40\}$) + LR | Primary input uses count frequencies; TF-IDF difference noted |
 | **Document Vectors** | Doc2Vec + Logistic Regression | Doc2Vec (PV-DBOW / PV-DM, fit strictly on train) + LR | Exact inference hygiene on val/test |
 | **Transformer** | Failed (Ran out of memory on Colab; no results) | Fine-tuned `nlpaueb/legal-bert-base-uncased` | Implemented GPU run; metadata and predictions are in `results/` |
-| **Interactive Demo**| None | Streamlit Web Application (`app.py`) | Interactive opinion classifier with probability breakdown |
+| **Interactive Demo**| None | Streamlit Web Application (`app.py`) | Planned for Phase 9; demo artifacts can be generated locally |
 | **Test Suite** | None | Pytest unit test suite (`tests/`) | Validates data hygiene, preprocessing, leakage, and models |
 
 ---
@@ -84,15 +84,15 @@ legal-text-classification/
 The settings below are the executed CPU-feasible settings, not a claim that
 they are optimal. The reduced settings mean the Logistic Regression versus
 LinearSVC comparison is not a clean algorithm comparison: Logistic Regression
-used liblinear one-vs-rest with `max_iter=5` and `tol=0.5`, so it is likely
-under-converged.
+used `solver="saga"` with `max_iter=5` and `tol=0.5`, so it is likely
+under-converged. The saved evidence is in
+`results/classical_selection.json`.
 
 - TF-IDF: `max_features=10_000`, word/bigram `(1, 2)`, `min_df=2`,
   `max_df=0.98`, `sublinear_tf=True`, `float32`, numeric tokens dropped.
-- Logistic Regression: `solver="saga"`, liblinear one-vs-rest was the
-  originally documented configuration but the executed script uses
-  `solver="saga"`, `C in {0.1, 1.0}`, `class_weight=None`, `max_iter=5`,
-  `tol=0.5`, `random_state=42`.
+- Logistic Regression: `solver="saga"`, `C in {0.1, 1.0}`,
+  `class_weight=None`, `max_iter=5`, `tol=0.5`,
+  `random_state=42`.
 - LinearSVC: `loss="squared_hinge"`, `C in {0.01, 0.1, 1.0}`,
   `random_state=42`.
 - LDA: raw counts, `max_features=500`, `min_df=5`, `max_df=0.98`,
@@ -104,6 +104,11 @@ under-converged.
 Selected hyperparameters and validation scores are saved in
 `results/classical_selection.json` and `results/topic_selection.json`.
 Phases 9–12 are not yet done.
+
+The Phase 8 final metrics are in `results/metrics.csv`. Phase 8 regenerated
+saved prediction archives without retraining for evaluation; the Doc2Vec
+metric changed slightly because repeated Doc2Vec/BLAS execution is not
+guaranteed bit-exact. See `docs/RUN_LOG.md`.
 
 ## Reproduce so far (PowerShell)
 
