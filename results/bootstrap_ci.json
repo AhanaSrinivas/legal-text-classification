@@ -1,0 +1,38 @@
+{
+  "doc2vec_lr": {
+    "resamples": 1000,
+    "seed": 42,
+    "lower_95": 0.2924189905574521,
+    "upper_95": 0.3533725773607728
+  },
+  "lda_lr": {
+    "resamples": 1000,
+    "seed": 42,
+    "lower_95": 0.29818557788719674,
+    "upper_95": 0.34995960523155284
+  },
+  "tfidf_linear_svc": {
+    "resamples": 1000,
+    "seed": 42,
+    "lower_95": 0.5977143194997487,
+    "upper_95": 0.6907170922949625
+  },
+  "tfidf_logistic_regression": {
+    "resamples": 1000,
+    "seed": 42,
+    "lower_95": 0.4338558562262879,
+    "upper_95": 0.5095500524847698
+  },
+  "transformer_legal_bert": {
+    "resamples": 1000,
+    "seed": 42,
+    "lower_95": 0.47606551677660075,
+    "upper_95": 0.5559745207394874
+  },
+  "majority_baseline": {
+    "resamples": 1000,
+    "seed": 42,
+    "lower_95": 0.021789369428854406,
+    "upper_95": 0.02694610778443114
+  }
+}

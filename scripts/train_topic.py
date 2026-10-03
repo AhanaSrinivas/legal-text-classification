@@ -135,6 +135,27 @@ def main():
         ignore_index=True,
     )
     metrics.to_csv(metrics_path, index=False)
+    Path("results/predictions").mkdir(exist_ok=True)
+    np.savez_compressed(
+        "results/predictions/lda_lr.npz",
+        val_labels=y_val,
+        val_predictions=best_lda["model"].predict(best_lda["lda"].transform(x_val_counts)),
+        val_scores=best_lda["model"].predict_proba(best_lda["lda"].transform(x_val_counts)),
+        test_labels=y_test,
+        test_predictions=best_lda["model"].predict(best_lda["lda"].transform(x_test_counts)),
+        test_scores=best_lda["model"].predict_proba(best_lda["lda"].transform(x_test_counts)),
+        score_kind=np.array("probabilities"),
+    )
+    np.savez_compressed(
+        "results/predictions/doc2vec_lr.npz",
+        val_labels=y_val,
+        val_predictions=doc2vec_lr.predict(doc_val),
+        val_scores=doc2vec_lr.predict_proba(doc_val),
+        test_labels=y_test,
+        test_predictions=doc2vec_lr.predict(doc_test),
+        test_scores=doc2vec_lr.predict_proba(doc_test),
+        score_kind=np.array("probabilities"),
+    )
 
     reports_path = Path("results/classification_reports/classical_reports.json")
     reports = json.loads(reports_path.read_text())

@@ -71,6 +71,13 @@ For the CPU run, Doc2Vec uses the first 500 normalized tokens of each
 document and five epochs; this engineering truncation is recorded as an
 extension difference.
 
+## Phase 8 evaluation notes
+
+Test macro-F1 confidence intervals are bootstrap percentile intervals from
+1,000 resamples with seed 42, saved in `results/bootstrap_ci.json`. Macro-F1
+is especially noisy for the 3-, 15-, and 17-document test classes because a
+small number of predictions can change a class's score substantially.
+
 ## Reproducibility
 
 Preprocessing itself has no random operation. Model and split-level seeds are

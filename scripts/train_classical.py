@@ -41,6 +41,7 @@ def main():
     rows = []
     reports = {}
     selected = {}
+    prediction_outputs = {}
     for name, candidates, fitter in [
         (
             "tfidf_logistic_regression",
@@ -66,6 +67,24 @@ def main():
         selected[name] = {"params": best["params"], "validation": best["metrics"]}
 
         test_pred = best["model"].predict(x_test)
+        val_pred = best["model"].predict(x_val)
+        if hasattr(best["model"], "predict_proba"):
+            val_scores = best["model"].predict_proba(x_val)
+            test_scores = best["model"].predict_proba(x_test)
+            score_kind = "probabilities"
+        else:
+            val_scores = best["model"].decision_function(x_val)
+            test_scores = best["model"].decision_function(x_test)
+            score_kind = "decision_scores"
+        prediction_outputs[name] = {
+            "val_labels": y_val,
+            "val_predictions": val_pred,
+            "val_scores": val_scores,
+            "test_labels": y_test,
+            "test_predictions": test_pred,
+            "test_scores": test_scores,
+            "score_kind": score_kind,
+        }
         test_metrics = evaluate_predictions(y_test, test_pred, SCDB_LABEL_NAMES)
         reports[name] = {"validation": best["metrics"], "test": test_metrics}
         rows.extend([
@@ -138,6 +157,14 @@ def main():
         json.dumps(selected, indent=2)
     )
     pd.DataFrame(ablation_rows).to_csv("results/numeric_token_ablation_validation.csv", index=False)
+    Path("results/predictions").mkdir(exist_ok=True)
+    for name, output in prediction_outputs.items():
+        score_kind = output.pop("score_kind")
+        np.savez_compressed(
+            f"results/predictions/{name}.npz",
+            **output,
+            score_kind=np.array(score_kind),
+        )
     print(pd.DataFrame(rows).to_string(index=False))
 
 
