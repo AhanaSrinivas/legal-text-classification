@@ -25,20 +25,18 @@ PRESERVED_LEGAL_TERMS = frozenset(
 )
 LEGAL_STOP_WORDS = frozenset(ENGLISH_STOP_WORDS.difference(PRESERVED_LEGAL_TERMS))
 _WHITESPACE = re.compile(r"\s+")
-_PURE_NUMERIC_TOKEN = re.compile(r"^\d+$")
+_STANDALONE_DIGITS = re.compile(r"\b\d+\b")
 
 
 def normalize_text(text: str, drop_numeric_tokens: bool = True) -> str:
-    """Normalize text, optionally dropping whitespace-delimited numeric tokens."""
+    """Normalize text, optionally removing standalone digit runs."""
     if not isinstance(text, str):
         raise TypeError(f"text must be str, got {type(text).__name__}")
     normalized = unicodedata.normalize("NFKC", text)
-    normalized = _WHITESPACE.sub(" ", normalized).strip().lower()
+    normalized = normalized.lower()
     if drop_numeric_tokens:
-        normalized = " ".join(
-            token for token in normalized.split()
-            if not _PURE_NUMERIC_TOKEN.fullmatch(token)
-        )
+        normalized = _STANDALONE_DIGITS.sub(" ", normalized)
+    normalized = _WHITESPACE.sub(" ", normalized).strip()
     return normalized
 
 

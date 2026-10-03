@@ -35,9 +35,7 @@ models/*.pt
 models/doc2vec/
 models/lda/
 
-# Local transformer outputs; the tracked files were CPU smoke-test placeholders
-results/transformer_predictions.npz
-results/transformer_run_info.json
+# Smoke-test transformer outputs remain local; full GPU outputs are reportable.
 results/smoke/
 models/transformer_smoke/
 

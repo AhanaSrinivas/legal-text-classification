@@ -5,7 +5,11 @@
 ---
 
 ## 1. Overview
-Supreme Court decisions are long, and CPU execution is slow. GPU runtime for the full run is **UNMEASURED** in this repository; record the actual elapsed time in `results/transformer_run_info.json` after the team completes the run.
+Supreme Court decisions are long, and CPU execution is slow. The completed
+GPU run took **1174.65 seconds (19.58 minutes) on a Tesla T4**. Its metadata
+is recorded in `results/transformer_run_info.json`. The run used the script
+version at commit `0b78314`; later local changes only isolate smoke outputs
+and guard full-result overwrites.
 
 This runbook explains how to run `scripts/04_train_transformer.py` on Google Colab / Kaggle, download the predictions and run metadata, and place them directly in your local `results/` folder.
 

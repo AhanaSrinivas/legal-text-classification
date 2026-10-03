@@ -67,6 +67,13 @@ def main():
         "selected_ngram_range": list(config.tfidf_ngram_range),
         "max_features": config.tfidf_max_features,
         "vocabulary_size": len(vectorizer.vocabulary_),
+        "pure_numeric_vocabulary_keys": sum(
+            key.isdigit() for key in vectorizer.vocabulary_
+        ),
+        "vocabulary_keys_containing_digits": sum(
+            any(character.isdigit() for character in key)
+            for key in vectorizer.vocabulary_
+        ),
         "fit_wall_time_seconds": round(elapsed, 3),
         "peak_process_rss_bytes": int(peak_rss),
         "peak_process_rss_gb": round(peak_rss / (1024 ** 3), 3),

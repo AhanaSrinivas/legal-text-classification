@@ -54,9 +54,10 @@ process RSS in `results/preprocessing_benchmark.json`. If either the
 and uses a unigram fallback.
 
 The executed benchmark retained the requested unigram+bigram configuration:
-263.132 seconds wall time, 1.541 GB peak process RSS, and a 50,000-feature
-vocabulary. These are preprocessing resource measurements, not model accuracy
-results.
+227.218 seconds wall time, 1.589 GB peak process RSS, and a 50,000-feature
+vocabulary. It produced zero pure-numeric vocabulary keys and 737 vocabulary
+keys containing at least one digit. These are preprocessing resource
+measurements, not model accuracy results.
 
 ## Reproducibility
 
