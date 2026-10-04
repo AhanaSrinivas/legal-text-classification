@@ -115,37 +115,45 @@ guaranteed bit-exact. See `docs/RUN_LOG.md`.
 ### Model artifacts
 
 Optional demo weights are hosted in the Hugging Face repository
-`AhanaSrinivas/legal-text-classification-artifacts`: the Legal-BERT state file
-and the fitted scikit-learn artifacts. Download them without writing the
-token to disk:
+`AhanaSrinivas/legal-text-classification-artifacts` with these exact paths:
+
+- `sklearn_artifacts/demo/tfidf_vectorizer.joblib` -> `models/demo/tfidf_vectorizer.joblib`
+- `sklearn_artifacts/demo/tfidf_linear_svc.joblib` -> `models/demo/tfidf_linear_svc.joblib`
+- `sklearn_artifacts/demo/tfidf_logistic_regression.joblib` -> `models/demo/tfidf_logistic_regression.joblib`
+- `legal_bert_state.pt` -> `models/legal_bert_state.pt`
+
+The Legal-BERT state file may not exist on HF yet. Download the available
+files without writing the token to disk:
 
 ```powershell
 $env:HF_ARTIFACT_REPO="<hf-username>/legal-text-classification-artifacts"
 $env:HF_TOKEN="<token>"
-& ".\venv\Scripts\python.exe" scripts\download_artifacts.py
+& ".\.venv\Scripts\python.exe" scripts\download_artifacts.py
 ```
 
 If the token, network, or artifact is unavailable, the demo continues without
 the missing file. The CPU fallback is:
 
 ```powershell
-& ".\venv\Scripts\python.exe" scripts\make_demo_artifacts.py
+& ".\.venv\Scripts\python.exe" scripts\make_demo_artifacts.py
 ```
 
 ## Reproduce so far (PowerShell)
 
 ```powershell
-& "C:\Program Files\Python313\python.exe" -m venv venv
-& ".\venv\Scripts\python.exe" -m pip install -r requirements.txt
-& ".\venv\Scripts\python.exe" scripts\01_run_eda.py
-& ".\venv\Scripts\python.exe" scripts\benchmark_preprocessing.py
-& ".\venv\Scripts\python.exe" scripts\train_classical.py
-& ".\venv\Scripts\python.exe" scripts\train_topic.py
-& ".\venv\Scripts\python.exe" -m pytest tests
+& ".\.venv\Scripts\python.exe" -m pip install -r requirements.txt
+& ".\.venv\Scripts\python.exe" scripts\01_run_eda.py
+& ".\.venv\Scripts\python.exe" scripts\benchmark_preprocessing.py
+& ".\.venv\Scripts\python.exe" scripts\train_classical.py
+& ".\.venv\Scripts\python.exe" scripts\train_topic.py
+& ".\.venv\Scripts\python.exe" -m pytest tests
 ```
 
 The Transformer outputs come from the completed Colab GPU run and are not
 reproducible on this CPU-only machine.
+Full-run Legal-BERT macro-F1 varies across runs (`0.5171` overwritten first
+run, `0.5124` write-up run, and the rerun value remains UNVERIFIED until its
+HF metadata JSON is supplied).
 
 ---
 

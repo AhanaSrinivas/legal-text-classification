@@ -16,9 +16,9 @@ Phases 1-8 are complete. Remaining work:
 git clone <repository-url>
 cd legal-text-classification
 & "C:\Program Files\Python313\python.exe" -m venv venv
-& ".\venv\Scripts\python.exe" -m pip install -r requirements.txt
-& ".\venv\Scripts\python.exe" -m pytest tests -q
-& ".\venv\Scripts\python.exe" scripts\make_demo_artifacts.py
+& ".\.venv\Scripts\python.exe" -m pip install -r requirements.txt
+& ".\.venv\Scripts\python.exe" -m pytest tests -q
+& ".\.venv\Scripts\python.exe" scripts\make_demo_artifacts.py
 ```
 
 The demo-artifact script creates CPU model files under ignored `models/demo/`.
@@ -58,14 +58,29 @@ real-prediction error analysis and hypotheses.
 
 Optional Legal-BERT and fitted scikit-learn demo artifacts are hosted on
 Hugging Face in `AhanaSrinivas/legal-text-classification-artifacts`. Download
-them with:
+these exact paths with:
+
+- `sklearn_artifacts/demo/tfidf_vectorizer.joblib` -> `models/demo/tfidf_vectorizer.joblib`
+- `sklearn_artifacts/demo/tfidf_linear_svc.joblib` -> `models/demo/tfidf_linear_svc.joblib`
+- `sklearn_artifacts/demo/tfidf_logistic_regression.joblib` -> `models/demo/tfidf_logistic_regression.joblib`
+- `legal_bert_state.pt` -> `models/legal_bert_state.pt`
 
 ```powershell
 $env:HF_ARTIFACT_REPO="<hf-username>/legal-text-classification-artifacts"
 $env:HF_TOKEN="<token>"
-& ".\venv\Scripts\python.exe" scripts\download_artifacts.py
+& ".\.venv\Scripts\python.exe" scripts\download_artifacts.py
 ```
 
 Tokens are read only from the environment and never written to files. If
-download is unavailable, use `scripts\make_demo_artifacts.py` for the CPU
+download is unavailable or the Legal-BERT file is absent, use
+`.\.venv\Scripts\python.exe scripts\make_demo_artifacts.py` for the CPU
 TF-IDF fallback.
+
+The live Legal-BERT demo prediction can differ from stored predictions because
+the downloaded demo weights and the write-up's stored predictions come from
+different runs.
+
+Full-run Legal-BERT macro-F1 has observed run-to-run variation: `0.5171`
+(overwritten first run), `0.5124` (write-up run), and the rerun value is
+UNVERIFIED until `transformer_run2_info.json` is supplied. The rerun weights
+are demo-only.
