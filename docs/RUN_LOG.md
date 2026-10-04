@@ -30,3 +30,11 @@ convergence evidence are in `results/converged_lr_selection.json`.
 The new training completed in under the 20-minute time box and reported
 convergence (`n_iter_ < max_iter`). The test split was predicted once for the
 selected new model.
+
+## Demo artifact rerun
+
+The demo weights came from a Colab Tesla T4 rerun with identical settings;
+the script commit hash is **UNVERIFIED** pending the supplied hash. Its test
+metrics are recorded in `transformer_run2_info.json` on Hugging Face. The run
+reported in the write-up remains the original experiment documented in
+`reports/colab_run_log.ipynb`.

@@ -53,3 +53,19 @@ show stored Legal-BERT predictions for sample test cases from
 
 See [`results/error_analysis.md`](../results/error_analysis.md) for the
 real-prediction error analysis and hypotheses.
+
+## Model artifacts
+
+Optional Legal-BERT and fitted scikit-learn demo artifacts are hosted on
+Hugging Face in `AhanaSrinivas/legal-text-classification-artifacts`. Download
+them with:
+
+```powershell
+$env:HF_ARTIFACT_REPO="<hf-username>/legal-text-classification-artifacts"
+$env:HF_TOKEN="<token>"
+& ".\venv\Scripts\python.exe" scripts\download_artifacts.py
+```
+
+Tokens are read only from the environment and never written to files. If
+download is unavailable, use `scripts\make_demo_artifacts.py` for the CPU
+TF-IDF fallback.

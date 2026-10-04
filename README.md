@@ -112,6 +112,26 @@ saved prediction archives without retraining for evaluation; the Doc2Vec
 metric changed slightly because repeated Doc2Vec/BLAS execution is not
 guaranteed bit-exact. See `docs/RUN_LOG.md`.
 
+### Model artifacts
+
+Optional demo weights are hosted in the Hugging Face repository
+`AhanaSrinivas/legal-text-classification-artifacts`: the Legal-BERT state file
+and the fitted scikit-learn artifacts. Download them without writing the
+token to disk:
+
+```powershell
+$env:HF_ARTIFACT_REPO="<hf-username>/legal-text-classification-artifacts"
+$env:HF_TOKEN="<token>"
+& ".\venv\Scripts\python.exe" scripts\download_artifacts.py
+```
+
+If the token, network, or artifact is unavailable, the demo continues without
+the missing file. The CPU fallback is:
+
+```powershell
+& ".\venv\Scripts\python.exe" scripts\make_demo_artifacts.py
+```
+
 ## Reproduce so far (PowerShell)
 
 ```powershell
