@@ -78,18 +78,14 @@ legal-text-classification/
 ├── src/                      # Modular, reusable source code
 │   ├── __init__.py
 │   ├── data.py               # Dataset loading, caching, schema validation, duplicate detection
-│   ├── preprocess.py         # Legal-aware text normalization and stopword handling
 │   ├── preprocess.py         # Legal-aware normalization and TF-IDF/count vectorizers
-│   ├── models_classical.py   # Logistic Regression and LinearSVC baseline pipelines
-│   ├── models_topic.py       # LDA topic modeling and Doc2Vec embedding pipelines
-│   ├── models_transformer.py # Legal-BERT fine-tuning and inference logic
 │   ├── evaluate.py           # Shared evaluation suite (F1 metrics, confusion matrix, reports)
 │   └── utils.py              # Seed management, file I/O, figure plotting, metric exports
 ├── scripts/                  # Standalone executable CLI scripts per phase
 │   ├── 01_run_eda.py         # Loads data, verifies schema, generates figures and stats
-│   ├── 02_train_classical.py # Trains TF-IDF + LR and LinearSVC, tunes on validation
-│   ├── 03_train_topic.py     # Sweeps LDA topics and trains Doc2Vec + LR
-│   ├── 04_train_transformer.py # Fine-tunes Legal-BERT (resumable, saves predictions)
+│   ├── train_classical.py    # Trains TF-IDF baselines and tunes on validation
+│   ├── train_topic.py        # Sweeps LDA topics and trains Doc2Vec + LR
+│   ├── 04_train_transformer.py # Trains Legal-BERT (resumable, saves predictions)
 │   ├── 05_evaluate_all.py    # Evaluates all models on test set, writes metrics.csv
 │   ├── 06_error_analysis.py  # Generates error breakdown and 8-10 case studies
 │   ├── 07_build_reports.py   # Compiles writeup.pdf (verifying <=2 pages) and slides.pptx
@@ -200,9 +196,9 @@ legal-text-classification/
 | **Phase 2** | Project Design | Finalize repository layout, system architecture, and plan | `PROJECT_PLAN.md` |
 | **Phase 3** | Dataset & EDA | Verify LexGLUE SCOTUS; check schema, splits, leakage; plot EDA | `src/data.py`, `scripts/01_run_eda.py`, `results/dataset_info.json`, `results/eda_stats.json`, figures |
 | **Phase 4** | Preprocessing | Legal stopword handling; LDA input rationale; leakage-free pipelines | `src/preprocess.py`, `docs/PREPROCESSING_DECISIONS.md` |
-| **Phase 5** | Classical ML | Train TF-IDF + Logistic Regression and LinearSVC; tune on val | `src/models_classical.py`, `scripts/02_train_classical.py`, models |
-| **Phase 6** | Paper Methods | Sweep LDA topics; fit Doc2Vec; train Logistic Regression | `src/models_topic.py`, `scripts/03_train_topic.py`, topic keyword table |
-| **Phase 7** | Transformer Extension| Implement Legal-BERT fine-tuning; handle 512 tokens; log device | `src/models_transformer.py`, `scripts/04_train_transformer.py`, `docs/COLAB_RUNBOOK.md`, `results/transformer_run_info.json` |
+| **Phase 5** | Classical ML | Train TF-IDF logistic-loss classifier and LinearSVC; tune on val | `scripts/train_classical.py`, `scripts/train_converged_lr.py`, models |
+| **Phase 6** | Paper Methods | Sweep LDA topics; fit Doc2Vec; train Logistic Regression | `scripts/train_topic.py`, topic selection metadata |
+| **Phase 7** | Transformer Extension| Train Legal-BERT; handle 512 tokens; log device | `scripts/04_train_transformer.py`, `docs/COLAB_RUNBOOK.md`, `results/transformer_run_info.json` |
 | **Phase 8** | Evaluation & Errors | Evaluate all on test set; generate comparative metrics & reports | `src/evaluate.py`, `scripts/05_evaluate_all.py`, `results/metrics.csv`, `results/error_analysis.md` |
 | **Phase 9** | Interactive Demo | Build Streamlit app with confidence scores, samples & warnings | `app.py`, headless startup smoke test |
 | **Phase 10**| Automated Tests | Implement unit tests for data, preprocessing, leakage, metrics | `tests/` test suite, `results/test_report.txt` |

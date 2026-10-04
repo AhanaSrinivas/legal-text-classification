@@ -7,7 +7,7 @@ from pathlib import Path
 
 import joblib
 import numpy as np
-from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import SGDClassifier
 from sklearn.svm import LinearSVC
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
@@ -31,9 +31,9 @@ def main():
     joblib.dump(svc, output_dir / "tfidf_linear_svc.joblib")
 
     try:
-        lr = LogisticRegression(
-            C=1.0, class_weight=None, max_iter=5, solver="saga",
-            tol=0.5, random_state=42,
+        lr = SGDClassifier(
+            loss="log_loss", penalty="l2", alpha=1e-5, max_iter=50,
+            tol=1e-3, class_weight=None, random_state=42,
         ).fit(x_train, y_train)
         joblib.dump(lr, output_dir / "tfidf_logistic_regression.joblib")
         print("Created TF-IDF + LinearSVC and TF-IDF + LogisticRegression demo artifacts.")

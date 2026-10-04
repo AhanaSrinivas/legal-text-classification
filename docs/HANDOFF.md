@@ -39,7 +39,9 @@ show stored Legal-BERT predictions for sample test cases from
 
 ## Limitations to carry into the report
 
-- Logistic Regression uses a reduced, likely under-converged configuration.
+- The final SGD logistic-loss classifier converged under the recorded
+  `n_iter_ < max_iter` check; the older saga comparison is explicitly
+  under-converged and retained separately.
 - LDA and Doc2Vec use reduced CPU-feasible configurations.
 - Legal-BERT truncates documents to 512 tokens and uses no class weights.
 - Results use a single seed.

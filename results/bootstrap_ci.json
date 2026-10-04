@@ -20,6 +20,12 @@
   "tfidf_logistic_regression": {
     "resamples": 1000,
     "seed": 42,
+    "lower_95": 0.589885550132659,
+    "upper_95": 0.6823442183680275
+  },
+  "tfidf_lr_saga_underconverged": {
+    "resamples": 1000,
+    "seed": 42,
     "lower_95": 0.4338558562262879,
     "upper_95": 0.5095500524847698
   },

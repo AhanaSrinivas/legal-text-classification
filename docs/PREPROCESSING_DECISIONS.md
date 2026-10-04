@@ -61,6 +61,14 @@ measurements, not model accuracy results.
 
 ## Paper-method differences
 
+Phase 5 uses a train-fitted 10,000-feature TF-IDF matrix with word unigrams
+and bigrams for both the final SGD logistic-loss classifier and LinearSVC.
+The final classifier uses `SGDClassifier(loss="log_loss", penalty="l2",
+max_iter=50, tol=1e-3, class_weight=None)` and tunes `alpha` over
+`{1e-6, 1e-5, 1e-4}` on validation macro F1. The earlier saga configuration
+(`max_iter=5`, `tol=0.5`) is retained as a separately labeled,
+under-converged comparison.
+
 Phase 6 uses raw count frequencies as the primary LDA input, whereas the
 reference paper describes TF-IDF input. This project records that difference
 explicitly. LDA topic count is selected from `{10, 20, 30, 40}` using

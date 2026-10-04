@@ -10,7 +10,7 @@ Classifying legal texts is a core challenge in legal informatics. Legal opinions
 
 This project reproduces and extends the methodology investigated by Krithika Iyer (Stanford CS229, 2020, *Classification of Legal Text*):
 - **Paper Methods**: Evaluates Latent Dirichlet Allocation (LDA) topic mixtures + Logistic Regression, and Paragraph Vector (Doc2Vec) dense embeddings + Logistic Regression.
-- **Our Baselines & Extensions**: Implements strong TF-IDF classical ML baselines (Logistic Regression and LinearSVC), resolves data leakage via strict split isolation, fine-tunes domain-adapted Transformers (`nlpaueb/legal-bert-base-uncased`), and provides honest empirical reporting on long-document truncation (512 tokens). The Streamlit application remains planned for Phase 9.
+- **Our Baselines & Extensions**: Implements TF-IDF classical ML baselines (SGD logistic-loss classifier and LinearSVC), resolves data leakage via strict split isolation, evaluates a domain-adapted Transformer (`nlpaueb/legal-bert-base-uncased`), and provides honest empirical reporting on long-document truncation (512 tokens). The Streamlit application remains planned for Phase 9.
 
 ---
 
@@ -19,12 +19,12 @@ This project reproduces and extends the methodology investigated by Krithika Iye
 | Component | Reference Paper (Iyer 2020) | Our Implementation & Reproduction | Status / Notes |
 |:---|:---|:---|:---|
 | **Dataset Source** | `textacy` scrape (~8,200 opinions) | LexGLUE SCOTUS (`coastalcph/lex_glue`) | Verified public benchmark, non-leaking splits |
-| **Splitting Method** | Random unseeded split; split details not specified in the paper | Chronological split recorded by LexGLUE metadata (boundary years are source-dataset metadata; verify against `results/dataset_info.json`) | Temporal ordering is documented; no claim that it eliminates look-ahead bias |
+| **Splitting Method** | Random split; details not specified in the paper | Chronological split recorded by LexGLUE metadata (boundary years are source-dataset metadata; verify against `results/dataset_info.json`) | Temporal ordering is documented; no causal leakage claim |
 | **Class Taxonomy** | 15 issue areas / 279 issue codes | 13 active SCDB issue areas (0-12) | Class 14 ('Private Action') is absent from the adopted LexGLUE SCOTUS corpus; see `docs/DATASET_DECISION.md` |
 | **Classical Baselines**| None | TF-IDF + Logistic Regression, TF-IDF + LinearSVC | Essential classical benchmarks |
 | **Topic Modeling** | LDA (TF-IDF input) + Logistic Regression | LDA (Count input, topic sweep $K \in \{10,20,30,40\}$) + LR | Primary input uses count frequencies; TF-IDF difference noted |
 | **Document Vectors** | Doc2Vec + Logistic Regression | Doc2Vec (PV-DBOW / PV-DM, fit strictly on train) + LR | Exact inference hygiene on val/test |
-| **Transformer** | Failed (Ran out of memory on Colab; no results) | Fine-tuned `nlpaueb/legal-bert-base-uncased` | Implemented GPU run; metadata and predictions are in `results/` |
+| **Transformer** | Failed (Ran out of memory on Colab; no results) | GPU-trained `nlpaueb/legal-bert-base-uncased` | Implemented GPU run; metadata and predictions are in `results/` |
 | **Interactive Demo**| None | Streamlit Web Application (`app.py`) | Planned for Phase 9; demo artifacts can be generated locally |
 | **Test Suite** | None | Pytest unit test suite (`tests/`) | Validates data hygiene, preprocessing, leakage, and models |
 
@@ -82,17 +82,19 @@ legal-text-classification/
 ## Exact model configurations used so far
 
 The settings below are the executed CPU-feasible settings, not a claim that
-they are optimal. The reduced settings mean the Logistic Regression versus
-LinearSVC comparison is not a clean algorithm comparison: Logistic Regression
-used `solver="saga"` with `max_iter=5` and `tol=0.5`, so it is likely
-under-converged. The saved evidence is in
-`results/classical_selection.json`.
+they are optimal. The final logistic-loss model is an `SGDClassifier`; the
+earlier saga run is retained separately as
+`tfidf_lr_saga_underconverged`. Saved evidence is in
+`results/converged_lr_selection.json` and `results/classical_selection.json`.
 
 - TF-IDF: `max_features=10_000`, word/bigram `(1, 2)`, `min_df=2`,
   `max_df=0.98`, `sublinear_tf=True`, `float32`, numeric tokens dropped.
-- Logistic Regression: `solver="saga"`, `C in {0.1, 1.0}`,
-  `class_weight=None`, `max_iter=5`, `tol=0.5`,
-  `random_state=42`.
+- Logistic-loss classifier: `SGDClassifier(loss="log_loss", penalty="l2")`,
+  `alpha in {1e-6, 1e-5, 1e-4}`, selected by validation macro F1,
+  `class_weight=None`, `max_iter=50`, `tol=1e-3`, `random_state=42`.
+- Retained saga comparison: `solver="saga"`, `C in {0.1, 1.0}`,
+  `class_weight=None`, `max_iter=5`, `tol=0.5`, `random_state=42`;
+  this run is labeled under-converged.
 - LinearSVC: `loss="squared_hinge"`, `C in {0.01, 0.1, 1.0}`,
   `random_state=42`.
 - LDA: raw counts, `max_features=500`, `min_df=5`, `max_df=0.98`,
