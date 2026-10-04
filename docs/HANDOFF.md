@@ -81,6 +81,9 @@ the downloaded demo weights and the write-up's stored predictions come from
 different runs.
 
 Full-run Legal-BERT macro-F1 has observed run-to-run variation: `0.5171`
-(overwritten first run), `0.5124` (write-up run), and the rerun value is
-UNVERIFIED until `transformer_run2_info.json` is supplied. The rerun weights
-are demo-only.
+(overwritten first run), `0.5124` (write-up run), and `0.5319059168277114`
+(this rerun). The demo Legal-BERT weights (`HF legal_bert_state.pt`) come from
+this rerun. The reported experiment remains the run in
+`reports/colab_run_log.ipynb` with predictions in
+`results/transformer_predictions.npz`, so live demo predictions can differ
+from stored predictions.

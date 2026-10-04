@@ -152,8 +152,7 @@ the missing file. The CPU fallback is:
 The Transformer outputs come from the completed Colab GPU run and are not
 reproducible on this CPU-only machine.
 Full-run Legal-BERT macro-F1 varies across runs (`0.5171` overwritten first
-run, `0.5124` write-up run, and the rerun value remains UNVERIFIED until its
-HF metadata JSON is supplied).
+run, `0.5124` write-up run, and `0.5319059168277114` from the rerun JSON).
 
 ---
 

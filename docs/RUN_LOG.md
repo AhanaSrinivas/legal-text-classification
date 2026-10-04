@@ -36,15 +36,19 @@ selected new model.
 The demo weights came from a Colab Tesla T4 rerun with identical settings,
 seed 42, and `results_dir=results_run2`, cloned at commit
 `ab0e0b128e4de95aca64d95d408db306999c0be6`. The run is logged in
-`reports/colab_run2_demo_weights.ipynb`. The requested
-`results/transformer_run2_info.json` is not present in this checkout, so its
-rerun test metrics remain **UNVERIFIED** and were not copied from notebook
-output. The metadata is expected at the HF artifact repo root.
+`reports/colab_run2_demo_weights.ipynb`. Its saved metadata reports:
+
+- model: `nlpaueb/legal-bert-base-uncased`; smoke test: `False`
+- device: `cuda`; GPU: `Tesla T4`
+- max length: 512; epochs: 3; batch size: 8
+- gradient accumulation: 2; effective batch size: 16
+- learning rate: 2e-05; elapsed seconds: 1146.78
+- validation accuracy: 0.7471428571428571; validation macro F1: 0.60389471468893; validation weighted F1: 0.7261696965485055
+- test accuracy: 0.7307142857142858; test macro F1: 0.5319059168277114; test weighted F1: 0.7043741212935379
 
 The full-run test macro-F1 values show run-to-run variation: `0.5171` from the
-first run that was overwritten, `0.5124` from the write-up run, and the
-rerun's value is **UNVERIFIED** until `transformer_run2_info.json` is supplied.
-The experiment reported in the write-up remains the run in
-`reports/colab_run_log.ipynb`, with predictions in
+first run that was overwritten, `0.5124` from the write-up run, and
+`0.5319059168277114` from this rerun. The experiment reported in the
+write-up remains the run in `reports/colab_run_log.ipynb`, with predictions in
 `results/transformer_predictions.npz`. The rerun's `legal_bert_state.pt` is
 for the demo only.
