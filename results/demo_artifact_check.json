@@ -1,0 +1,21 @@
+{
+  "sklearn_version_used": "1.7.2",
+  "tfidf_linear_svc": {
+    "pickled_with_sklearn": "1.9.1",
+    "hyperparameter": {
+      "C": 0.1
+    },
+    "test_agreement_with_reported_predictions": 0.8814285714285715,
+    "demo_test_macro_f1": 0.5047858066215113,
+    "demo_test_accuracy": 0.7028571428571428
+  },
+  "tfidf_logistic_regression": {
+    "pickled_with_sklearn": "1.9.1",
+    "hyperparameter": {
+      "alpha": 1e-05
+    },
+    "test_agreement_with_reported_predictions": 0.9714285714285714,
+    "demo_test_macro_f1": 0.6253165658008105,
+    "demo_test_accuracy": 0.7314285714285714
+  }
+}
