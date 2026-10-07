@@ -346,3 +346,86 @@ def render(template: str) -> str:
         return str(value)
 
     return _PLACEHOLDER.sub(substitute, template)
+
+
+def validation_facts():
+    """Display validation evidence separately from the model-number allowlist.
+
+    Logs include deliberate fake audit values. They must never enter facts(),
+    which authorizes numbers in the model reports.
+    """
+    local = _json("validation/local_checks.json")
+    fresh = _json("validation/fresh_clone.json")
+    context = _json("validation/final_context.json")
+
+    def output(records, needle):
+        for entry in records:
+            command = entry["command"]
+            if needle in (" ".join(command) if isinstance(command, list) else command):
+                return entry["output"]
+        raise KeyError(f"Missing validation command: {needle}")
+
+    def summary(text):
+        return re.findall(r"^\d+ passed[^\n]*", text, re.MULTILINE)[-1]
+
+    v = {
+        "validation_pages": str(local["pdf_pages"]),
+        "validation_slides": str(local["slides"]),
+        "validation_notes": str(local["notes"]),
+        "validation_local_tests": summary(local["final_runall"]["output"] if "final_runall" in local
+                                          else output(local["commands"], "-m pytest")),
+        "validation_fresh_tests": summary(output(fresh["commands"], "-m pytest")),
+        "validation_fresh_test_output": output(fresh["commands"], "-m pytest"),
+        "validation_shortlog": output(context["commands"], "shortlog"),
+        "validation_history": output(context["commands"], "git log"),
+        "validation_context_commit": output(context["commands"], "rev-parse").strip(),
+        "validation_clone_commit": fresh["source_commit"],
+        "validation_clone_path": fresh["clone"],
+        "validation_sklearn": local["sklearn_version"],
+        "validation_visual_review": local["visual_review"],
+        "validation_negative_controls": "\n".join(local["negative_control"]["unmatched"]),
+        "validation_diff_stat": output(fresh["commands"], "git diff --stat"),
+        "validation_clone_status": fresh["final_status"],
+        "validation_clone_runall": output(fresh["commands"], "run_all.py"),
+        "validation_evaluation": output(fresh["commands"], "scripts/evaluate_all.py"),
+        "validation_png_count": str(sum(name.endswith(".png") for name in fresh["evaluation_changes"])),
+    }
+    for mode, coverage in local["coverage"].items():
+        v[f"validation_{mode}_coverage"] = (
+            f"{coverage['matched']}/{coverage['total']} ({coverage['percent']})"
+        )
+    v["validation_audit_output"] = "\n".join(
+        line for line in output(local["commands"], "run_all.py").splitlines()
+        if line.startswith("PASS  ") or line.startswith("FAIL  ")
+    )
+    command_rows = []
+    import shlex
+    for entry in fresh["commands"]:
+        command = entry["command"]
+        overrides = entry.get("environment_overrides", {})
+        prefix = " ".join(f"{key}={shlex.quote(value)}" for key, value in overrides.items())
+        command_rows.append(
+            f"| `{entry['cwd']}` | `{prefix + ' ' if prefix else ''}{command}` "
+            f"| {entry['exit_code']} |"
+        )
+    v["validation_commands"] = "\n".join(command_rows)
+    v["validation_hash_rows"] = "\n".join(
+        f"| `{name}` | `{before}` | {'identical' if before == fresh['after'][name] else 'CHANGED'} |"
+        for name, before in fresh["before"].items()
+    )
+    if not fresh["passed"] or local["artifact_diff"]:
+        raise ValueError("Validation evidence records a failed check or local artifact drift")
+    for name, comparison in fresh["byte_comparisons"].items():
+        if name.endswith(".png") and not comparison["pixels_equal"]:
+            raise ValueError(f"Validation template assumes identical PNG pixels: {name}")
+        if name.endswith(".npz") and not comparison["member_content_equal"]:
+            raise ValueError(f"Validation template assumes identical NPZ members: {name}")
+        if name.endswith(".pptx") and comparison["changed_zip_members"] != ["ppt/media/image4.png"]:
+            raise ValueError(f"Review changed deck members before updating validation: {name}")
+    return v
+
+
+def render_validation(template: str) -> str:
+    """Render the validation document using model facts and captured evidence."""
+    values = {**facts(), **validation_facts()}
+    return _PLACEHOLDER.sub(lambda match: str(values[match.group(1)]), template)

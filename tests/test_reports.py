@@ -7,7 +7,7 @@ import pytest
 from pptx import Presentation
 from pypdf import PdfReader
 
-from scripts import audit_numbers, make_readme_results, make_viva_qa
+from scripts import audit_numbers, make_final_validation, make_readme_results, make_viva_qa
 from src.report_facts import render
 
 
@@ -42,6 +42,10 @@ def test_readme_generated_blocks_are_current():
 def test_viva_is_fresh_render():
     expected = make_viva_qa.HEADER + render(make_viva_qa.TEMPLATE.read_text(encoding="utf-8"))
     assert make_viva_qa.OUTPUT.read_text(encoding="utf-8") == expected
+
+
+def test_final_validation_is_fresh_render():
+    assert make_final_validation.OUTPUT.read_text(encoding="utf-8") == make_final_validation.document()
 
 
 def test_document_number_audit():
