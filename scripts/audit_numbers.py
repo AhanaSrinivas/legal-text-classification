@@ -79,6 +79,10 @@ def allowed_values(*, strict_decimals=True):
     """Use loose forms only for integers; the old mode is for coverage measurement."""
     allowed = {}
     for path in sorted((ROOT / "results").rglob("*")):
+        # Validation logs contain deliberate fake values and package versions,
+        # not model evidence. Never let those logs authorize document numbers.
+        if "validation" in path.relative_to(ROOT / "results").parts:
+            continue
         if path.suffix not in {".json", ".csv", ".md", ".txt"}:
             continue
         text = path.read_text(encoding="utf-8", errors="ignore")

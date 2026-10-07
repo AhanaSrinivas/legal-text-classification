@@ -1,0 +1,934 @@
+{
+  "source": "/Users/shriharinagesh/legal-text-classification",
+  "clone": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+  "commands": [
+    {
+      "command": "git rev-parse HEAD",
+      "cwd": "/Users/shriharinagesh/legal-text-classification",
+      "exit_code": 0,
+      "output": "1791408df2cd6cd1ddcf58fcb806c2e4a6e8fa8b\n"
+    },
+    {
+      "command": "git clone /Users/shriharinagesh/legal-text-classification /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+      "cwd": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2",
+      "exit_code": 0,
+      "output": "Cloning into '/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc'...\ndone.\n"
+    },
+    {
+      "command": "/Users/shriharinagesh/legal-text-classification/.venv/bin/python -m venv .venv",
+      "cwd": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": ".venv/bin/python -m pip install -r requirements.txt",
+      "cwd": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+      "exit_code": 1,
+      "output": "WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x104e49550>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')': /simple/datasets/\nWARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x104e542d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')': /simple/datasets/\nWARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x104e54550>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')': /simple/datasets/\nWARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x104e547d0>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')': /simple/datasets/\nWARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<pip._vendor.urllib3.connection.HTTPSConnection object at 0x104e54a50>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known')': /simple/datasets/\nERROR: Could not find a version that satisfies the requirement datasets==5.0.0 (from versions: none)\nERROR: No matching distribution found for datasets==5.0.0\n"
+    },
+    {
+      "command": ".venv/bin/python -m pip cache dir",
+      "cwd": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+      "exit_code": 0,
+      "output": "/Users/shriharinagesh/Library/Caches/pip\n"
+    },
+    {
+      "command": ".venv/bin/python -m pip install --no-index --find-links /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels -r requirements.txt",
+      "cwd": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+      "exit_code": 0,
+      "output": "Looking in links: /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/datasets-5.0.0-py3-none-any.whl (from -r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/transformers-5.12.1-py3-none-any.whl (from -r requirements.txt (line 5))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/torch-2.12.1-cp313-cp313-macosx_14_0_arm64.whl (from -r requirements.txt (line 6))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/scikit_learn-1.7.2-cp313-cp313-macosx_12_0_arm64.whl (from -r requirements.txt (line 7))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/joblib-1.5.2-py3-none-any.whl (from -r requirements.txt (line 8))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/numpy-2.3.4-cp313-cp313-macosx_14_0_arm64.whl (from -r requirements.txt (line 9))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/pandas-2.3.3-cp313-cp313-macosx_11_0_arm64.whl (from -r requirements.txt (line 10))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/matplotlib-3.10.7-cp313-cp313-macosx_11_0_arm64.whl (from -r requirements.txt (line 11))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/seaborn-0.13.2-py3-none-any.whl (from -r requirements.txt (line 12))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/gensim-4.4.0-cp313-cp313-macosx_11_0_arm64.whl (from -r requirements.txt (line 13))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/scipy-1.16.2-cp313-cp313-macosx_14_0_arm64.whl (from -r requirements.txt (line 14))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/streamlit-1.50.0-py3-none-any.whl (from -r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/python_pptx-1.0.2-py3-none-any.whl (from -r requirements.txt (line 16))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/reportlab-5.0.1-py3-none-any.whl (from -r requirements.txt (line 17))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/pypdf-6.19.0-py3-none-any.whl (from -r requirements.txt (line 18))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/pytest-8.4.2-py3-none-any.whl (from -r requirements.txt (line 19))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/psutil-7.1.2-cp36-abi3-macosx_11_0_arm64.whl (from -r requirements.txt (line 20))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/huggingface_hub-1.33.0-py3-none-any.whl (from -r requirements.txt (line 21))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/filelock-4.0.12-py3-none-any.whl (from datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/pyarrow-25.0.1-cp313-cp313-macosx_12_0_arm64.whl (from datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/dill-0.4.1-py3-none-any.whl (from datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/requests-2.34.2-py3-none-any.whl (from datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/httpx-0.28.1-py3-none-any.whl (from datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/tqdm-4.70.1-py3-none-any.whl (from datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/xxhash-4.0.1-cp313-cp313-macosx_11_0_arm64.whl (from datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/multiprocess-0.70.19-py313-none-any.whl (from datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/fsspec-2026.4.0-py3-none-any.whl (from fsspec[http]<=2026.4.0,>=2023.1.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/packaging-25.0-py3-none-any.whl (from datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/pyyaml-6.0.3-cp313-cp313-macosx_11_0_arm64.whl (from datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/click-8.5.0-py3-none-any.whl (from huggingface_hub==1.33.0->-r requirements.txt (line 21))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/hf_xet-1.7.0-cp38-abi3-macosx_11_0_arm64.whl (from huggingface_hub==1.33.0->-r requirements.txt (line 21))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/typing_extensions-4.16.0-py3-none-any.whl (from huggingface_hub==1.33.0->-r requirements.txt (line 21))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/regex-2026.9.29-cp313-cp313-macosx_11_0_arm64.whl (from transformers==5.12.1->-r requirements.txt (line 5))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/tokenizers-0.22.2-cp39-abi3-macosx_11_0_arm64.whl (from transformers==5.12.1->-r requirements.txt (line 5))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/typer-0.27.3-py3-none-any.whl (from transformers==5.12.1->-r requirements.txt (line 5))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/safetensors-0.8.0-cp310-abi3-macosx_11_0_arm64.whl (from transformers==5.12.1->-r requirements.txt (line 5))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/setuptools-81.0.0-py3-none-any.whl (from torch==2.12.1->-r requirements.txt (line 6))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/sympy-1.14.0-py3-none-any.whl (from torch==2.12.1->-r requirements.txt (line 6))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/networkx-3.7-py3-none-any.whl (from torch==2.12.1->-r requirements.txt (line 6))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/jinja2-3.1.6-py3-none-any.whl (from torch==2.12.1->-r requirements.txt (line 6))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/threadpoolctl-3.7.0-py3-none-any.whl (from scikit-learn==1.7.2->-r requirements.txt (line 7))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/python_dateutil-2.9.0.post0-py3-none-any.whl (from pandas==2.3.3->-r requirements.txt (line 10))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/pytz-2026.5-py3-none-any.whl (from pandas==2.3.3->-r requirements.txt (line 10))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/tzdata-2026.5-py3-none-any.whl (from pandas==2.3.3->-r requirements.txt (line 10))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/contourpy-1.4.0-cp313-cp313-macosx_11_0_arm64.whl (from matplotlib==3.10.7->-r requirements.txt (line 11))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/cycler-0.12.1-py3-none-any.whl (from matplotlib==3.10.7->-r requirements.txt (line 11))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/fonttools-4.66.1-cp313-cp313-macosx_10_13_universal2.whl (from matplotlib==3.10.7->-r requirements.txt (line 11))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/kiwisolver-1.5.1-cp313-cp313-macosx_11_0_arm64.whl (from matplotlib==3.10.7->-r requirements.txt (line 11))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/pillow-12.3.0-cp313-cp313-macosx_11_0_arm64.whl (from matplotlib==3.10.7->-r requirements.txt (line 11))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/pyparsing-3.3.3-py3-none-any.whl (from matplotlib==3.10.7->-r requirements.txt (line 11))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/smart_open-8.0.2-py3-none-any.whl (from gensim==4.4.0->-r requirements.txt (line 13))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/altair-5.5.0-py3-none-any.whl (from streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/blinker-1.9.0-py3-none-any.whl (from streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/cachetools-6.2.6-py3-none-any.whl (from streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/pillow-11.3.0-cp313-cp313-macosx_11_0_arm64.whl (from matplotlib==3.10.7->-r requirements.txt (line 11))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/protobuf-6.33.6-cp39-abi3-macosx_10_9_universal2.whl (from streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/tenacity-9.1.4-py3-none-any.whl (from streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/toml-0.10.2-py3-none-any.whl (from streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/gitpython-3.2.0-py3-none-any.whl (from streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/pydeck-0.9.3-py3-none-any.whl (from streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/tornado-6.5.10-cp39-abi3-macosx_10_9_universal2.whl (from streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/xlsxwriter-3.2.9-py3-none-any.whl (from python-pptx==1.0.2->-r requirements.txt (line 16))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/lxml-6.1.3-cp313-cp313-macosx_10_13_universal2.whl (from python-pptx==1.0.2->-r requirements.txt (line 16))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/charset_normalizer-3.5.2-cp313-cp313-macosx_10_13_universal2.whl (from reportlab==5.0.1->-r requirements.txt (line 17))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/iniconfig-2.3.1-py3-none-any.whl (from pytest==8.4.2->-r requirements.txt (line 19))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/pluggy-1.6.0-py3-none-any.whl (from pytest==8.4.2->-r requirements.txt (line 19))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/pygments-2.21.0-py3-none-any.whl (from pytest==8.4.2->-r requirements.txt (line 19))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/jsonschema-4.26.0-py3-none-any.whl (from altair!=5.4.0,!=5.4.1,<6,>=4.0->streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/narwhals-2.26.0-py3-none-any.whl (from altair!=5.4.0,!=5.4.1,<6,>=4.0->streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/aiohttp-3.14.4-cp313-cp313-macosx_11_0_arm64.whl (from fsspec[http]<=2026.4.0,>=2023.1.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/gitdb-4.0.12-py3-none-any.whl (from gitpython!=3.1.19,<4,>=3.0.7->streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/smmap-5.0.3-py3-none-any.whl (from gitdb<5,>=4.0.1->gitpython!=3.1.19,<4,>=3.0.7->streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/anyio-4.15.1-py3-none-any.whl (from httpx<1.0.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/certifi-2026.7.22-py3-none-any.whl (from httpx<1.0.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/httpcore-1.0.9-py3-none-any.whl (from httpx<1.0.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/idna-3.20-py3-none-any.whl (from httpx<1.0.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/h11-0.16.0-py3-none-any.whl (from httpcore==1.*->httpx<1.0.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/urllib3-2.8.0-py3-none-any.whl (from requests>=2.32.2->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/aiohappyeyeballs-2.7.1-py3-none-any.whl (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.4.0,>=2023.1.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/aiosignal-1.4.0-py3-none-any.whl (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.4.0,>=2023.1.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/attrs-26.1.0-py3-none-any.whl (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.4.0,>=2023.1.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/frozenlist-1.8.0-cp313-cp313-macosx_11_0_arm64.whl (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.4.0,>=2023.1.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/multidict-6.9.1-cp313-cp313-macosx_11_0_arm64.whl (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.4.0,>=2023.1.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/propcache-0.5.4-cp313-cp313-macosx_11_0_arm64.whl (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.4.0,>=2023.1.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/yarl-1.25.1-cp313-cp313-macosx_11_0_arm64.whl (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]<=2026.4.0,>=2023.1.0->datasets==5.0.0->-r requirements.txt (line 4))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/markupsafe-3.0.4-cp313-cp313-macosx_11_0_arm64.whl (from jinja2->torch==2.12.1->-r requirements.txt (line 6))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/jsonschema_specifications-2025.9.1-py3-none-any.whl (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<6,>=4.0->streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/referencing-0.37.0-py3-none-any.whl (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<6,>=4.0->streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/rpds_py-2026.9.1-cp313-cp313-macosx_11_0_arm64.whl (from jsonschema>=3.0->altair!=5.4.0,!=5.4.1,<6,>=4.0->streamlit==1.50.0->-r requirements.txt (line 15))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/six-1.17.0-py3-none-any.whl (from python-dateutil>=2.8.2->pandas==2.3.3->-r requirements.txt (line 10))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/wrapt-2.5.0-cp313-cp313-macosx_11_0_arm64.whl (from smart_open>=1.8.1->gensim==4.4.0->-r requirements.txt (line 13))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/mpmath-1.3.0-py3-none-any.whl (from sympy>=1.13.3->torch==2.12.1->-r requirements.txt (line 6))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/shellingham-1.5.4-py3-none-any.whl (from typer->transformers==5.12.1->-r requirements.txt (line 5))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/rich-15.0.0-py3-none-any.whl (from typer->transformers==5.12.1->-r requirements.txt (line 5))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/annotated_doc-0.0.5-py3-none-any.whl (from typer->transformers==5.12.1->-r requirements.txt (line 5))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/markdown_it_py-4.2.0-py3-none-any.whl (from rich>=13.8.0->typer->transformers==5.12.1->-r requirements.txt (line 5))\nProcessing /var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/wheels/mdurl-0.1.2-py3-none-any.whl (from markdown-it-py>=2.2.0->rich>=13.8.0->typer->transformers==5.12.1->-r requirements.txt (line 5))\nInstalling collected packages: pytz, mpmath, xxhash, XlsxWriter, wrapt, urllib3, tzdata, typing-extensions, tqdm, tornado, toml, threadpoolctl, tenacity, sympy, smmap, six, shellingham, setuptools, safetensors, rpds-py, regex, pyyaml, pypdf, pyparsing, pygments, pyarrow, psutil, protobuf, propcache, pluggy, pillow, packaging, numpy, networkx, narwhals, multidict, mdurl, MarkupSafe, lxml, kiwisolver, joblib, iniconfig, idna, hf-xet, h11, fsspec, frozenlist, fonttools, filelock, dill, cycler, click, charset-normalizer, certifi, cachetools, blinker, attrs, annotated-doc, aiohappyeyeballs, yarl, smart_open, scipy, requests, reportlab, referencing, python-pptx, python-dateutil, pytest, multiprocess, markdown-it-py, jinja2, httpcore, gitdb, contourpy, anyio, aiosignal, torch, scikit-learn, rich, pydeck, pandas, matplotlib, jsonschema-specifications, httpx, gitpython, gensim, aiohttp, typer, seaborn, jsonschema, huggingface_hub, tokenizers, datasets, altair, transformers, streamlit\n\nSuccessfully installed MarkupSafe-3.0.4 XlsxWriter-3.2.9 aiohappyeyeballs-2.7.1 aiohttp-3.14.4 aiosignal-1.4.0 altair-5.5.0 annotated-doc-0.0.5 anyio-4.15.1 attrs-26.1.0 blinker-1.9.0 cachetools-6.2.6 certifi-2026.7.22 charset-normalizer-3.5.2 click-8.5.0 contourpy-1.4.0 cycler-0.12.1 datasets-5.0.0 dill-0.4.1 filelock-4.0.12 fonttools-4.66.1 frozenlist-1.8.0 fsspec-2026.4.0 gensim-4.4.0 gitdb-4.0.12 gitpython-3.2.0 h11-0.16.0 hf-xet-1.7.0 httpcore-1.0.9 httpx-0.28.1 huggingface_hub-1.33.0 idna-3.20 iniconfig-2.3.1 jinja2-3.1.6 joblib-1.5.2 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 kiwisolver-1.5.1 lxml-6.1.3 markdown-it-py-4.2.0 matplotlib-3.10.7 mdurl-0.1.2 mpmath-1.3.0 multidict-6.9.1 multiprocess-0.70.19 narwhals-2.26.0 networkx-3.7 numpy-2.3.4 packaging-25.0 pandas-2.3.3 pillow-11.3.0 pluggy-1.6.0 propcache-0.5.4 protobuf-6.33.6 psutil-7.1.2 pyarrow-25.0.1 pydeck-0.9.3 pygments-2.21.0 pyparsing-3.3.3 pypdf-6.19.0 pytest-8.4.2 python-dateutil-2.9.0.post0 python-pptx-1.0.2 pytz-2026.5 pyyaml-6.0.3 referencing-0.37.0 regex-2026.9.29 reportlab-5.0.1 requests-2.34.2 rich-15.0.0 rpds-py-2026.9.1 safetensors-0.8.0 scikit-learn-1.7.2 scipy-1.16.2 seaborn-0.13.2 setuptools-81.0.0 shellingham-1.5.4 six-1.17.0 smart_open-8.0.2 smmap-5.0.3 streamlit-1.50.0 sympy-1.14.0 tenacity-9.1.4 threadpoolctl-3.7.0 tokenizers-0.22.2 toml-0.10.2 torch-2.12.1 tornado-6.5.10 tqdm-4.70.1 transformers-5.12.1 typer-0.27.3 typing-extensions-4.16.0 tzdata-2026.5 urllib3-2.8.0 wrapt-2.5.0 xxhash-4.0.1 yarl-1.25.1\n"
+    },
+    {
+      "command": ".venv/bin/python -m pip check",
+      "cwd": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+      "exit_code": 0,
+      "output": "No broken requirements found.\n"
+    },
+    {
+      "command": ".venv/bin/python -m pytest tests -q -rs",
+      "cwd": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+      "exit_code": 0,
+      "output": "...s.............sss................................................     [100%]\n=========================== short test summary info ============================\nSKIPPED [1] tests/test_app.py:47: TF-IDF demo artifacts not downloaded\nSKIPPED [2] tests/test_demo.py:103: TF-IDF demo artifacts not downloaded\nSKIPPED [1] tests/test_demo.py:114: set LTC_RUN_BERT=1 with models/legal_bert_state.pt present (slow, needs the tokenizer)\n64 passed, 4 skipped in 51.63s\n",
+      "environment_overrides": {
+        "HF_HUB_OFFLINE": "1",
+        "HF_DATASETS_OFFLINE": "1"
+      }
+    },
+    {
+      "command": ".venv/bin/python scripts/evaluate_all.py",
+      "cwd": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+      "exit_code": 0,
+      "output": "Using the latest cached version of the dataset since coastalcph/lex_glue couldn't be found on the Hugging Face Hub (offline mode is enabled).\nFound the latest cached dataset configuration 'scotus' at /Users/shriharinagesh/.cache/huggingface/datasets/coastalcph___lex_glue/scotus/0.0.0/c23fdff1a6bf74e0e1a71cb86f1e781d37da888c (last modified on Wed Oct  7 12:16:00 2026).\n                       model  test_macro_f1  test_accuracy\n                  doc2vec_lr       0.321791       0.474286\n                      lda_lr       0.321414       0.546429\n            tfidf_linear_svc       0.635154       0.737143\n   tfidf_logistic_regression       0.628559       0.732143\ntfidf_lr_saga_underconverged       0.469907       0.680000\n      transformer_legal_bert       0.512374       0.724286\n           majority_baseline       0.024096       0.185714\n",
+      "environment_overrides": {
+        "HF_HUB_OFFLINE": "1",
+        "HF_DATASETS_OFFLINE": "1"
+      }
+    },
+    {
+      "command": "git diff --stat",
+      "cwd": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+      "exit_code": 0,
+      "output": " .../confusion_matrix_normalized_doc2vec_lr.png     | Bin 207694 -> 207894 bytes\n .../figures/confusion_matrix_normalized_lda_lr.png | Bin 196847 -> 197206 bytes\n ...nfusion_matrix_normalized_majority_baseline.png | Bin 158612 -> 159398 bytes\n ...onfusion_matrix_normalized_tfidf_linear_svc.png | Bin 194373 -> 194707 bytes\n ...matrix_normalized_tfidf_logistic_regression.png | Bin 196183 -> 196539 bytes\n ...rix_normalized_tfidf_lr_saga_underconverged.png | Bin 195573 -> 196123 bytes\n ...on_matrix_normalized_transformer_legal_bert.png | Bin 196982 -> 197344 bytes\n results/figures/model_comparison.png               | Bin 72141 -> 72228 bytes\n results/predictions/transformer_legal_bert.npz     | Bin 138793 -> 138793 bytes\n 9 files changed, 0 insertions(+), 0 deletions(-)\n"
+    },
+    {
+      "command": "git diff --name-only",
+      "cwd": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+      "exit_code": 0,
+      "output": "results/figures/confusion_matrix_normalized_doc2vec_lr.png\nresults/figures/confusion_matrix_normalized_lda_lr.png\nresults/figures/confusion_matrix_normalized_majority_baseline.png\nresults/figures/confusion_matrix_normalized_tfidf_linear_svc.png\nresults/figures/confusion_matrix_normalized_tfidf_logistic_regression.png\nresults/figures/confusion_matrix_normalized_tfidf_lr_saga_underconverged.png\nresults/figures/confusion_matrix_normalized_transformer_legal_bert.png\nresults/figures/model_comparison.png\nresults/predictions/transformer_legal_bert.npz\n"
+    },
+    {
+      "command": ".venv/bin/python run_all.py",
+      "cwd": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+      "exit_code": 0,
+      "output": "PASS README blocks: completed\nUpdated 5 generated sections in README.md\nPASS PDF (page check): completed\nWrote reports/writeup.pdf (2 pages)\nPASS slides (count and notes): completed\nWrote reports/slides.pptx (15 slides, all with speaker notes)\nPASS VIVA_QA: completed\nWrote reports/VIVA_QA.md\nPASS number audit: completed\nPASS  README.md: 221 numbers checked, 0 unmatched\nPASS  reports/writeup.pdf: 140 numbers checked, 0 unmatched\nPASS  reports/slides.pptx: 266 numbers checked, 0 unmatched\nPASS  reports/VIVA_QA.md: 204 numbers checked, 0 unmatched\nPASS  reports/CONTRIBUTIONS.md: 25 numbers checked, 0 unmatched\nPASS  15 documented settings found in their source files\n"
+    },
+    {
+      "command": "git status --short",
+      "cwd": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+      "exit_code": 0,
+      "output": " M reports/slides.pptx\n M results/figures/confusion_matrix_normalized_doc2vec_lr.png\n M results/figures/confusion_matrix_normalized_lda_lr.png\n M results/figures/confusion_matrix_normalized_majority_baseline.png\n M results/figures/confusion_matrix_normalized_tfidf_linear_svc.png\n M results/figures/confusion_matrix_normalized_tfidf_logistic_regression.png\n M results/figures/confusion_matrix_normalized_tfidf_lr_saga_underconverged.png\n M results/figures/confusion_matrix_normalized_transformer_legal_bert.png\n M results/figures/model_comparison.png\n M results/predictions/transformer_legal_bert.npz\n"
+    },
+    {
+      "command": "git diff --name-only",
+      "cwd": "/var/folders/py/rcrdx4bd6c5_zrknzczllzr80000gn/T/ltc-fresh-clone-mv2l9oz2/ltc",
+      "exit_code": 0,
+      "output": "reports/slides.pptx\nresults/figures/confusion_matrix_normalized_doc2vec_lr.png\nresults/figures/confusion_matrix_normalized_lda_lr.png\nresults/figures/confusion_matrix_normalized_majority_baseline.png\nresults/figures/confusion_matrix_normalized_tfidf_linear_svc.png\nresults/figures/confusion_matrix_normalized_tfidf_logistic_regression.png\nresults/figures/confusion_matrix_normalized_tfidf_lr_saga_underconverged.png\nresults/figures/confusion_matrix_normalized_transformer_legal_bert.png\nresults/figures/model_comparison.png\nresults/predictions/transformer_legal_bert.npz\n"
+    }
+  ],
+  "cache_note": "Shared machine pip/Hugging Face caches; isolated venv; no demo weights copied.",
+  "source_commit": "1791408df2cd6cd1ddcf58fcb806c2e4a6e8fa8b",
+  "offline_wheels": [
+    {
+      "wheel": "pygments-2.21.0-py3-none-any.whl",
+      "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9"
+    },
+    {
+      "wheel": "pillow-11.3.0-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "7db51d222548ccfd274e4572fdbf3e810a5e66b00608862f947b163e613b67dd"
+    },
+    {
+      "wheel": "altair-5.5.0-py3-none-any.whl",
+      "sha256": "91a310b926508d560fe0148d02a194f38b824122641ef528113d029fcd129f8c"
+    },
+    {
+      "wheel": "filelock-3.19.1-py3-none-any.whl",
+      "sha256": "d38e30481def20772f5baf097c122c3babc4fcdb7e14e57049eb9d88c6dc017d"
+    },
+    {
+      "wheel": "shellingham-1.5.4-py3-none-any.whl",
+      "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686"
+    },
+    {
+      "wheel": "joblib-1.5.3-py3-none-any.whl",
+      "sha256": "5fc3c5039fc5ca8c0276333a188bbd59d6b7ab37fe6632daa76bc7f9ec18e713"
+    },
+    {
+      "wheel": "pip-25.3-py3-none-any.whl",
+      "sha256": "9655943313a94722b7774661c21049070f6bbb0a1516bf02f7c8d5d9201514cd"
+    },
+    {
+      "wheel": "matplotlib-3.10.7-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "37a1fea41153dd6ee061d21ab69c9cf2cf543160b1b85d89cd3d2e2a7902ca4c"
+    },
+    {
+      "wheel": "jinja2-3.1.6-py3-none-any.whl",
+      "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67"
+    },
+    {
+      "wheel": "seaborn-0.13.2-py3-none-any.whl",
+      "sha256": "636f8336facf092165e27924f223d3c62ca560b1f2bb5dff7ab7fad265361987"
+    },
+    {
+      "wheel": "tqdm-4.67.1-py3-none-any.whl",
+      "sha256": "26445eca388f82e72884e0d580d5464cd801a3ea01e63e5601bdff9ba6a48de2"
+    },
+    {
+      "wheel": "requests-2.34.2-py3-none-any.whl",
+      "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0"
+    },
+    {
+      "wheel": "annotated_types-0.7.0-py3-none-any.whl",
+      "sha256": "1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53"
+    },
+    {
+      "wheel": "pluggy-1.6.0-py3-none-any.whl",
+      "sha256": "e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746"
+    },
+    {
+      "wheel": "jsonschema-4.26.0-py3-none-any.whl",
+      "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce"
+    },
+    {
+      "wheel": "pyarrow-25.0.1-cp313-cp313-macosx_12_0_arm64.whl",
+      "sha256": "c7c534ec03c358a76ea3e505e74c1b6aef290af90c444dfd092dbfe23e755b85"
+    },
+    {
+      "wheel": "click-8.2.1-py3-none-any.whl",
+      "sha256": "61a3265b914e850b85317d0b3109c7f8cd35a670f963866005d6ef1d5175a12b"
+    },
+    {
+      "wheel": "httpx-0.28.1-py3-none-any.whl",
+      "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad"
+    },
+    {
+      "wheel": "httpcore-1.0.9-py3-none-any.whl",
+      "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55"
+    },
+    {
+      "wheel": "beautifulsoup4-4.13.4-py3-none-any.whl",
+      "sha256": "9bbbb14bfde9d79f38b8cd5f8c7c85f4b8f2523190ebed90e950a8dea4cb1c4b"
+    },
+    {
+      "wheel": "pydantic-2.12.5-py3-none-any.whl",
+      "sha256": "e561593fccf61e8a20fc46dfc2dfe075b8be7d0188df33f221ad1f0139180f9d"
+    },
+    {
+      "wheel": "dill-0.4.1-py3-none-any.whl",
+      "sha256": "1e1ce33e978ae97fcfcff5638477032b801c46c7c65cf717f95fbc2248f79a9d"
+    },
+    {
+      "wheel": "setuptools-80.9.0-py3-none-any.whl",
+      "sha256": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"
+    },
+    {
+      "wheel": "multidict-6.9.1-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "e5ccad4b7bac125722f48d6f862bed3b514d8526deea06316bb72f152cd30a7c"
+    },
+    {
+      "wheel": "pdfplumber-0.11.9-py3-none-any.whl",
+      "sha256": "33ec5580959ba524e9100138746e090879504c42955df1b8a997604dd326c443"
+    },
+    {
+      "wheel": "pyarrow-21.0.0-cp313-cp313-macosx_12_0_arm64.whl",
+      "sha256": "e99310a4ebd4479bcd1964dff9e14af33746300cb014aa4a3781738ac63baf4a"
+    },
+    {
+      "wheel": "MarkupSafe-3.0.2-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "f8b3d067f2e40fe93e1ccdd6b2e1d16c43140e76f02fb1319a05cf2b79d99430"
+    },
+    {
+      "wheel": "anyio-4.12.1-py3-none-any.whl",
+      "sha256": "d405828884fc140aa80a3c667b8beed277f1dfedec42ba031bd6ac3db606ab6c"
+    },
+    {
+      "wheel": "numpy-2.3.2-cp313-cp313-macosx_14_0_arm64.whl",
+      "sha256": "dd937f088a2df683cbb79dda9a772b62a3e5a8a7e76690612c2737f38c6ef1b6"
+    },
+    {
+      "wheel": "idna-3.11-py3-none-any.whl",
+      "sha256": "771a87f49d9defaf64091e6e6fe9c18d4833f140bd19464795bc32d966ca37ea"
+    },
+    {
+      "wheel": "markupsafe-3.0.4-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "73e77980c7207854f00fc4e71fb1626868d5740ab4012623d55c7a99ad122a72"
+    },
+    {
+      "wheel": "transformers-4.56.0-py3-none-any.whl",
+      "sha256": "bacf539c38dd850690856881c4974321af93a22f2ee96bcc994741a2121d8e71"
+    },
+    {
+      "wheel": "urllib3-2.8.0-py3-none-any.whl",
+      "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3"
+    },
+    {
+      "wheel": "regex-2025.9.1-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "22213527df4c985ec4a729b055a8306272d41d2f45908d7bacb79be0fa7a75ad"
+    },
+    {
+      "wheel": "tokenizers-0.22.0-cp39-abi3-macosx_11_0_arm64.whl",
+      "sha256": "71784b9ab5bf0ff3075bceeb198149d2c5e068549c0d18fe32d06ba0deb63f79"
+    },
+    {
+      "wheel": "pydeck-0.9.3-py3-none-any.whl",
+      "sha256": "d8a47c11c81fb12d51b1feb42427ff4f0e13cb599e48931021b2cba98b6849a6"
+    },
+    {
+      "wheel": "werkzeug-3.1.5-py3-none-any.whl",
+      "sha256": "5111e36e91086ece91f93268bb39b4a35c1e6f1feac762c9c822ded0a4e322dc"
+    },
+    {
+      "wheel": "distro-1.9.0-py3-none-any.whl",
+      "sha256": "7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2"
+    },
+    {
+      "wheel": "jsonschema-4.25.1-py3-none-any.whl",
+      "sha256": "3fba0169e345c7175110351d456342c364814cfcf3b964ba4587f22915230a63"
+    },
+    {
+      "wheel": "h11-0.16.0-py3-none-any.whl",
+      "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+    },
+    {
+      "wheel": "scipy-1.17.0-cp313-cp313-macosx_14_0_arm64.whl",
+      "sha256": "9fad7d3578c877d606b1150135c2639e9de9cecd3705caa37b66862977cc3e72"
+    },
+    {
+      "wheel": "aiohttp-3.14.4-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "fac247d0cc956d732df1211ac2d8a9999ec8dc1a92a90401de9d52e4ead546f7"
+    },
+    {
+      "wheel": "tqdm-4.67.3-py3-none-any.whl",
+      "sha256": "ee1e4c0e59148062281c49d80b25b67771a127c85fc9676d3be5f243206826bf"
+    },
+    {
+      "wheel": "pillow-12.3.0-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "d69141514cc30b774ceea5e3ed3a6635c8d8a96edf664689b890f4089111fb35"
+    },
+    {
+      "wheel": "rpds_py-2026.9.1-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "eba5d173f7d5708b22a93815017a4611873ed54db9f268077c0dd1ed99cfc858"
+    },
+    {
+      "wheel": "PyYAML-6.0.2-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "50187695423ffe49e2deacb8cd10510bc361faac997de9efef88badc3bb9e2d1"
+    },
+    {
+      "wheel": "pydantic_core-2.41.5-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "112e305c3314f40c93998e567879e887a3160bb8689ef3d2c04b6cc62c33ac34"
+    },
+    {
+      "wheel": "typing_extensions-4.14.1-py3-none-any.whl",
+      "sha256": "d1e1e3b58374dc93031d6eda2420a48ea44a36c2b4766a4fdeb3710755731d76"
+    },
+    {
+      "wheel": "mpmath-1.3.0-py3-none-any.whl",
+      "sha256": "a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c"
+    },
+    {
+      "wheel": "xlsxwriter-3.2.9-py3-none-any.whl",
+      "sha256": "9a5db42bc5dff014806c58a20b9eae7322a134abb6fce3c92c181bfb275ec5b3"
+    },
+    {
+      "wheel": "six-1.17.0-py3-none-any.whl",
+      "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"
+    },
+    {
+      "wheel": "certifi-2026.7.22-py3-none-any.whl",
+      "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775"
+    },
+    {
+      "wheel": "aiohappyeyeballs-2.7.1-py3-none-any.whl",
+      "sha256": "9243213661e29250eb41368e5daa826fc017156c3b8a11440826b2e3ed376472"
+    },
+    {
+      "wheel": "urllib3-2.5.0-py3-none-any.whl",
+      "sha256": "e6b01673c0fa6a13e374b50871808eb3bf7046c4b125b216f6bf1cc604cff0dc"
+    },
+    {
+      "wheel": "yarl-1.25.1-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "0f12afda4eea8c8994a76d4df1875c765194f5fbe8a9d197929ea303caee29ec"
+    },
+    {
+      "wheel": "threadpoolctl-3.7.0-py3-none-any.whl",
+      "sha256": "cd8b60b5641b45c67bbf73c64c843235fc2d8a480c87389f52f5dbee893b86be"
+    },
+    {
+      "wheel": "streamlit-1.50.0-py3-none-any.whl",
+      "sha256": "9403b8f94c0a89f80cf679c2fcc803d9a6951e0fba542e7611995de3f67b4bb3"
+    },
+    {
+      "wheel": "xxhash-4.0.1-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "cd878d32f5c6cbce9783f8d6897561fb772211edba9dde49d85672b88ed45276"
+    },
+    {
+      "wheel": "soupsieve-2.7-py3-none-any.whl",
+      "sha256": "6e60cc5c1ffaf1cebcc12e8188320b72071e922c2e897f737cadce79ad5d30c4"
+    },
+    {
+      "wheel": "huggingface_hub-0.34.4-py3-none-any.whl",
+      "sha256": "9b365d781739c93ff90c359844221beef048403f1bc1f1c123c191257c3c890a"
+    },
+    {
+      "wheel": "scikit_learn-1.8.0-cp313-cp313-macosx_12_0_arm64.whl",
+      "sha256": "edec98c5e7c128328124a029bceb09eda2d526997780fef8d65e9a69eead963e"
+    },
+    {
+      "wheel": "cffi-2.0.0-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "45d5e886156860dc35862657e1494b9bae8dfa63bf56796f2fb56e1679fc0bca"
+    },
+    {
+      "wheel": "idna-3.20-py3-none-any.whl",
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c"
+    },
+    {
+      "wheel": "markdown_it_py-4.2.0-py3-none-any.whl",
+      "sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a"
+    },
+    {
+      "wheel": "blinker-1.9.0-py3-none-any.whl",
+      "sha256": "ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc"
+    },
+    {
+      "wheel": "transformers-5.12.1-py3-none-any.whl",
+      "sha256": "2a5e109d2021265df7098ffbb738295acaf5ad256f12cbc586db2ea4dcbb1a8a"
+    },
+    {
+      "wheel": "tzdata-2025.2-py3-none-any.whl",
+      "sha256": "1a403fada01ff9221ca8044d701868fa132215d84beb92242d9acd2147f667a8"
+    },
+    {
+      "wheel": "annotated_doc-0.0.5-py3-none-any.whl",
+      "sha256": "117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101"
+    },
+    {
+      "wheel": "tenacity-9.1.4-py3-none-any.whl",
+      "sha256": "6095a360c919085f28c6527de529e76a06ad89b23659fa881ae0649b867a9d55"
+    },
+    {
+      "wheel": "networkx-3.5-py3-none-any.whl",
+      "sha256": "0030d386a9a06dee3565298b4a734b68589749a544acbb6c412dc9e2489ec6ec"
+    },
+    {
+      "wheel": "torchvision-0.23.0-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "1c37e325e09a184b730c3ef51424f383ec5745378dc0eca244520aca29722600"
+    },
+    {
+      "wheel": "frozenlist-1.8.0-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "f21f00a91358803399890ab167098c131ec2ddd5f8f5fd5fe9c9f2c6fcd91e40"
+    },
+    {
+      "wheel": "typing_extensions-4.16.0-py3-none-any.whl",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+    },
+    {
+      "wheel": "openai-2.21.0-py3-none-any.whl",
+      "sha256": "0bc1c775e5b1536c294eded39ee08f8407656537ccc71b1004104fe1602e267c"
+    },
+    {
+      "wheel": "pandas-2.3.2-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "c6f048aa0fd080d6a06cc7e7537c09b53be6642d330ac6f54a600c3ace857ee9"
+    },
+    {
+      "wheel": "iniconfig-2.0.0-py3-none-any.whl",
+      "sha256": "b6a85871a79d2e3b22d2d1b94ac2824226a63c6b741c88f7ae975f18b6778374"
+    },
+    {
+      "wheel": "protobuf-6.32.0-cp39-abi3-macosx_10_9_universal2.whl",
+      "sha256": "d52691e5bee6c860fff9a1c86ad26a13afbeb4b168cd4445c922b7e2cf85aaf0"
+    },
+    {
+      "wheel": "tqdm-4.70.1-py3-none-any.whl",
+      "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73"
+    },
+    {
+      "wheel": "sniffio-1.3.1-py3-none-any.whl",
+      "sha256": "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2"
+    },
+    {
+      "wheel": "packaging-24.2-py3-none-any.whl",
+      "sha256": "09abb1bccd265c01f4a3aa3f7a7db064b36514d2cba19a2f694fe6150451a759"
+    },
+    {
+      "wheel": "pypdf-6.19.0-py3-none-any.whl",
+      "sha256": "7e5d6e730e7dae87d560a2cee218b852f6498c8be61966f3cd02ead971e48d14"
+    },
+    {
+      "wheel": "python_pptx-1.0.2-py3-none-any.whl",
+      "sha256": "160838e0b8565a8b1f67947675886e9fea18aa5e795db7ae531606d68e785cba"
+    },
+    {
+      "wheel": "tenacity-9.1.2-py3-none-any.whl",
+      "sha256": "f77bf36710d8b73a50b2dd155c97b870017ad21afe6ab300326b0371b3b05138"
+    },
+    {
+      "wheel": "cycler-0.12.1-py3-none-any.whl",
+      "sha256": "85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30"
+    },
+    {
+      "wheel": "tzdata-2026.5-py3-none-any.whl",
+      "sha256": "b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac"
+    },
+    {
+      "wheel": "referencing-0.36.2-py3-none-any.whl",
+      "sha256": "e8699adbbf8b5c7de96d8ffa0eb5c158b3beafce084968e2ea8bb08c6794dcd0"
+    },
+    {
+      "wheel": "contourpy-1.4.0-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "196759a3e4db60e1546167e361090ebb6d199aa3aafc9e34ea17a5ac3b23e814"
+    },
+    {
+      "wheel": "hf_xet-1.7.0-cp38-abi3-macosx_11_0_arm64.whl",
+      "sha256": "59fba37039233c7fcbe196817d6cdcf1b40dfb17b410f229d85b0cf0a1848da4"
+    },
+    {
+      "wheel": "pyyaml-6.0.3-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "2283a07e2c21a2aa78d9c4442724ec1eb15f5e42a723b99cb3d822d48f5f7ad1"
+    },
+    {
+      "wheel": "filelock-4.0.12-py3-none-any.whl",
+      "sha256": "5f17ee83ecee8a6f3e389c75822fb70a1c2f0506b99438a6dffa1d56793588c8"
+    },
+    {
+      "wheel": "packaging-25.0-py3-none-any.whl",
+      "sha256": "29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484"
+    },
+    {
+      "wheel": "python_dateutil-2.9.0.post0-py3-none-any.whl",
+      "sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427"
+    },
+    {
+      "wheel": "pytz-2025.2-py3-none-any.whl",
+      "sha256": "5ddf76296dd8c44c26eb8f4b6f35488f3ccbf6fbbd7adee0b7262d43f0ec2f00"
+    },
+    {
+      "wheel": "flask-3.1.2-py3-none-any.whl",
+      "sha256": "ca1d8112ec8a6158cc29ea4858963350011b5c846a414cdb7a954aa9e967d03c"
+    },
+    {
+      "wheel": "certifi-2026.1.4-py3-none-any.whl",
+      "sha256": "9943707519e4add1115f44c2bc244f782c0249876bf51b6599fee1ffbedd685c"
+    },
+    {
+      "wheel": "pandas-2.3.3-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "bdcd9d1167f4885211e401b3036c0c8d9e274eee67ea8d0758a256d60704cfe8"
+    },
+    {
+      "wheel": "ply-3.11-py3-none-any.whl",
+      "sha256": "096f9b8350b65ebd2fd1346b12452efe5b9607f7482813ffca50c22722a807ce"
+    },
+    {
+      "wheel": "smart_open-8.0.2-py3-none-any.whl",
+      "sha256": "7ff6e4acf454269905db0c747f5d14fdba6056db572c0f8398043676dc91515c"
+    },
+    {
+      "wheel": "charset_normalizer-3.5.2-cp313-cp313-macosx_10_13_universal2.whl",
+      "sha256": "6045373d5a89a5ec71afde535db987ca28e76dfa276c2d4c818265b375d4b055"
+    },
+    {
+      "wheel": "streamlit-1.49.1-py3-none-any.whl",
+      "sha256": "ad7b6d0dc35db168587acf96f80378249467fc057ed739a41c511f6bf5aa173b"
+    },
+    {
+      "wheel": "narwhals-2.26.0-py3-none-any.whl",
+      "sha256": "29326d74f107c347fd1009bd58e38d9f7c7c5b51e6de97bc93dbc325d9038b54"
+    },
+    {
+      "wheel": "networkx-3.7-py3-none-any.whl",
+      "sha256": "e3fd2c13a7814cee3746340d8d7f8598a67f16a58bf47fb7f8793fab6efca1b0"
+    },
+    {
+      "wheel": "idna-3.10-py3-none-any.whl",
+      "sha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3"
+    },
+    {
+      "wheel": "pip-26.2.1-py3-none-any.whl",
+      "sha256": "71138adf1f4ca900cdb7d289c21b7494329f2332b6d85f0e1c42108c0384ed3e"
+    },
+    {
+      "wheel": "fsspec-2026.4.0-py3-none-any.whl",
+      "sha256": "11ef7bb35dab8a394fde6e608221d5cf3e8499401c249bebaeaad760a1a8dec2"
+    },
+    {
+      "wheel": "datasets-5.0.0-py3-none-any.whl",
+      "sha256": "7dd34927a0fd7046e98aad5cb9430e699c373238a15befa7b9bf22b991a7fee6"
+    },
+    {
+      "wheel": "regex-2026.9.29-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "c90fcf7804ea0a54b896ce0f2b9565350220b8d4890fd0db461a476a4c687963"
+    },
+    {
+      "wheel": "aiosignal-1.4.0-py3-none-any.whl",
+      "sha256": "053243f8b92b990551949e63930a839ff0cf0b0ebbe0597b0f3fb19e1a0fe82e"
+    },
+    {
+      "wheel": "markupsafe-3.0.3-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "116bb52f642a37c115f517494ea5feb03889e04df47eeff5b130b1808ce7c219"
+    },
+    {
+      "wheel": "setuptools-81.0.0-py3-none-any.whl",
+      "sha256": "fdd925d5c5d9f62e4b74b30d6dd7828ce236fd6ed998a08d81de62ce5a6310d6"
+    },
+    {
+      "wheel": "hf_xet-1.1.9-cp37-abi3-macosx_11_0_arm64.whl",
+      "sha256": "9b486de7a64a66f9a172f4b3e0dfe79c9f0a93257c501296a2521a13495a698a"
+    },
+    {
+      "wheel": "lxml-6.1.3-cp313-cp313-macosx_10_13_universal2.whl",
+      "sha256": "3a48093cdb058a93af842ede9703520e810b05dcd0fc6d7190a06376c3bfb6bd"
+    },
+    {
+      "wheel": "smmap-5.0.3-py3-none-any.whl",
+      "sha256": "c106e05d5a61449cf6ba9a1e650227ecfb141590d2a98412103ff35d89fc7b2f"
+    },
+    {
+      "wheel": "attrs-25.3.0-py3-none-any.whl",
+      "sha256": "427318ce031701fea540783410126f03899a97ffc6f61596ad581ac2e40e3bc3"
+    },
+    {
+      "wheel": "pymupdf-1.28.2-cp310-abi3-macosx_11_0_arm64.whl",
+      "sha256": "7113846b35dbf0a033f088e4f4fb543dabeb4b0b12c112966a1ca1ee2d5eacae"
+    },
+    {
+      "wheel": "pycparser-3.0-py3-none-any.whl",
+      "sha256": "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992"
+    },
+    {
+      "wheel": "reportlab-5.0.1-py3-none-any.whl",
+      "sha256": "1c36e6bb0e71780c72331eba60da7f602e8d4389a8723825af71342e49d791e8"
+    },
+    {
+      "wheel": "pypdfium2-5.4.0-py3-none-macosx_11_0_arm64.whl",
+      "sha256": "0e83657db8da5971434ff5683bf3faa007ee1f3a56b61f245b8aa5b60442c23a"
+    },
+    {
+      "wheel": "referencing-0.37.0-py3-none-any.whl",
+      "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231"
+    },
+    {
+      "wheel": "joblib-1.5.2-py3-none-any.whl",
+      "sha256": "4e1f0bdbb987e6d843c70cf43714cb276623def372df3c22fe5266b2670bc241"
+    },
+    {
+      "wheel": "pyfqmr-0.5.0-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "931f0c26b2784d58c768cd8e2c65809071efa735f3b9c9a7f9ad209ffd003027"
+    },
+    {
+      "wheel": "pip-26.0.1-py3-none-any.whl",
+      "sha256": "bdb1b08f4274833d62c1aa29e20907365a2ceb950410df15fc9521bad440122b"
+    },
+    {
+      "wheel": "jsonschema_specifications-2025.4.1-py3-none-any.whl",
+      "sha256": "4653bffbd6584f7de83a67e0d620ef16900b390ddc7939d56684d6c81e33f1af"
+    },
+    {
+      "wheel": "certifi-2025.8.3-py3-none-any.whl",
+      "sha256": "f6c12493cfb1b06ba2ff328595af9350c65d6644968e5d3a2ffd78699af217a5"
+    },
+    {
+      "wheel": "jiter-0.13.0-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "f556aa591c00f2c45eb1b89f68f52441a016034d18b65da60e2d2875bbbf344a"
+    },
+    {
+      "wheel": "propcache-0.5.4-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "44149f46500a0a41b95b4d99c2e586a77319539730607b9892974a092788b111"
+    },
+    {
+      "wheel": "rich-15.0.0-py3-none-any.whl",
+      "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb"
+    },
+    {
+      "wheel": "pydeck-0.9.1-py3-none-any.whl",
+      "sha256": "b3f75ba0d273fc917094fa61224f3f6076ca8752b93d46faf3bcfd9f9d59b038"
+    },
+    {
+      "wheel": "scipy-1.16.2-cp313-cp313-macosx_14_0_arm64.whl",
+      "sha256": "e52729ffd45b68777c5319560014d6fd251294200625d9d70fd8626516fc49f5"
+    },
+    {
+      "wheel": "cryptography-46.0.5-cp311-abi3-macosx_10_9_universal2.whl",
+      "sha256": "351695ada9ea9618b3500b490ad54c739860883df6c1f555e088eaf25b1bbaad"
+    },
+    {
+      "wheel": "smmap-5.0.2-py3-none-any.whl",
+      "sha256": "b30115f0def7d7531d22a0fb6502488d879e75b260a9db4d0819cfb25403af5e"
+    },
+    {
+      "wheel": "torch-2.12.1-cp313-cp313-macosx_14_0_arm64.whl",
+      "sha256": "c75e93173c700bccd6bfcc4a9d19ce242ab6dacd1f1781483027a16239b9e650"
+    },
+    {
+      "wheel": "sympy-1.14.0-py3-none-any.whl",
+      "sha256": "e091cc3e99d2141a0ba2847328f5479b05d94a6635cb96148ccb3f34671bd8f5"
+    },
+    {
+      "wheel": "gensim-4.4.0-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "59d0d29099a76dd97d4563e002f3488a43e51f99d46387025da38007ebfeeff9"
+    },
+    {
+      "wheel": "scikit_learn-1.7.2-cp313-cp313-macosx_12_0_arm64.whl",
+      "sha256": "abebbd61ad9e1deed54cca45caea8ad5f79e1b93173dece40bb8e0c658dbe6fe"
+    },
+    {
+      "wheel": "fonttools-4.66.1-cp313-cp313-macosx_10_13_universal2.whl",
+      "sha256": "53e5854ea8003efec34adc0863c18ce91da923018354d27366f7fee7db928d7a"
+    },
+    {
+      "wheel": "pytest-8.4.2-py3-none-any.whl",
+      "sha256": "872f880de3fc3a5bdc88a11b39c9710c3497a547cfa9320bc3c5e62fbf272e79"
+    },
+    {
+      "wheel": "attrs-26.1.0-py3-none-any.whl",
+      "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309"
+    },
+    {
+      "wheel": "pdfminer_six-20251230-py3-none-any.whl",
+      "sha256": "9ff2e3466a7dfc6de6fd779478850b6b7c2d9e9405aa2a5869376a822771f485"
+    },
+    {
+      "wheel": "click-8.3.1-py3-none-any.whl",
+      "sha256": "981153a64e25f12d547d3426c367a4857371575ee7ad18df2a6183ab0545b2a6"
+    },
+    {
+      "wheel": "pluggy-1.5.0-py3-none-any.whl",
+      "sha256": "44e1ad92c8ca002de6377e165f3e0f1be63266ab4d554740532335b9d75ea669"
+    },
+    {
+      "wheel": "protobuf-6.33.6-cp39-abi3-macosx_10_9_universal2.whl",
+      "sha256": "9720e6961b251bde64edfdab7d500725a2af5280f3f4c87e57c0208376aa8c3a"
+    },
+    {
+      "wheel": "numpy-2.3.4-cp313-cp313-macosx_14_0_arm64.whl",
+      "sha256": "3634093d0b428e6c32c3a69b78e554f0cd20ee420dcad5a9f3b2a63762ce4197"
+    },
+    {
+      "wheel": "huggingface_hub-1.33.0-py3-none-any.whl",
+      "sha256": "04e434b06e100eddbce9a6e817d72693a7884b10a79bd67ab48080d5c07eb899"
+    },
+    {
+      "wheel": "anyio-4.15.1-py3-none-any.whl",
+      "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101"
+    },
+    {
+      "wheel": "charset_normalizer-3.4.3-cp313-cp313-macosx_10_13_universal2.whl",
+      "sha256": "14c2a87c65b351109f6abfc424cab3927b3bdece6f706e4d12faaf3d52ee5efe"
+    },
+    {
+      "wheel": "iniconfig-2.3.1-py3-none-any.whl",
+      "sha256": "9121e2c1fdb355232495be3194c8dfe87ccc2d5dee45947b78e68f499790d7a7"
+    },
+    {
+      "wheel": "tornado-6.5.2-cp39-abi3-macosx_10_9_universal2.whl",
+      "sha256": "2436822940d37cde62771cff8774f4f00b3c8024fe482e16ca8387b8a2724db6"
+    },
+    {
+      "wheel": "charset_normalizer-3.4.4-cp313-cp313-macosx_10_13_universal2.whl",
+      "sha256": "e1f185f86a6f3403aa2420e815904c67b2f9ebc443f045edd0de921108345794"
+    },
+    {
+      "wheel": "wrapt-2.5.0-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "c57ddae24cf72eb6bd18112638a987cafe6109d90f2df111e6934362cc03ac1a"
+    },
+    {
+      "wheel": "mdurl-0.1.2-py3-none-any.whl",
+      "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"
+    },
+    {
+      "wheel": "multiprocess-0.70.19-py313-none-any.whl",
+      "sha256": "8d5eb4ec5017ba2fab4e34a747c6d2c2b6fecfe9e7236e77988db91580ada952"
+    },
+    {
+      "wheel": "typer-0.27.3-py3-none-any.whl",
+      "sha256": "e50022f28b82a86313e54501317a1db64bf8f8d036ff8cfe5ca7e47675454aff"
+    },
+    {
+      "wheel": "gitpython-3.1.45-py3-none-any.whl",
+      "sha256": "8908cb2e02fb3b93b7eb0f2827125cb699869470432cc885f019b8fd0fccff77"
+    },
+    {
+      "wheel": "jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe"
+    },
+    {
+      "wheel": "gitdb-4.0.12-py3-none-any.whl",
+      "sha256": "67073e15955400952c6565cc3e707c554a4eea2e428946f7a4c162fab9bd9bcf"
+    },
+    {
+      "wheel": "cachetools-6.2.6-py3-none-any.whl",
+      "sha256": "8c9717235b3c651603fff0076db52d6acbfd1b338b8ed50256092f7ce9c85bda"
+    },
+    {
+      "wheel": "setuptools-75.6.0-py3-none-any.whl",
+      "sha256": "ce74b49e8f7110f9bf04883b730f4765b774ef3ef28f722cce7c273d253aaf7d"
+    },
+    {
+      "wheel": "tornado-6.5.10-cp39-abi3-macosx_10_9_universal2.whl",
+      "sha256": "9261783640e23258694a9ff0795df430a5a7b0a651d3dd53dd0969ad6be16da7"
+    },
+    {
+      "wheel": "click-8.5.0-py3-none-any.whl",
+      "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360"
+    },
+    {
+      "wheel": "pillow-12.1.1-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "8b7e5304e34942bf62e15184219a7b5ad4ff7f3bb5cca4d984f37df1a0e1aee2"
+    },
+    {
+      "wheel": "toml-0.10.2-py3-none-any.whl",
+      "sha256": "806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"
+    },
+    {
+      "wheel": "safetensors-0.8.0-cp310-abi3-macosx_11_0_arm64.whl",
+      "sha256": "c80201d22cbf405b80647a60ada77bba06c8fba2da2743ba1e89cdcc39a81f25"
+    },
+    {
+      "wheel": "typing_inspection-0.4.2-py3-none-any.whl",
+      "sha256": "4ed1cacbdc298c220f1bd249ed5287caa16f34d44ef4e9c3d0cbad5b521545e7"
+    },
+    {
+      "wheel": "cachetools-6.2.0-py3-none-any.whl",
+      "sha256": "1c76a8960c0041fcc21097e357f882197c79da0dbff766e7317890a65d7d8ba6"
+    },
+    {
+      "wheel": "itsdangerous-2.2.0-py3-none-any.whl",
+      "sha256": "c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef"
+    },
+    {
+      "wheel": "gitpython-3.2.0-py3-none-any.whl",
+      "sha256": "bd70c5ec05cd2b797423e7eb312147d2458d3cca92085888fba2213f85905537"
+    },
+    {
+      "wheel": "threadpoolctl-3.6.0-py3-none-any.whl",
+      "sha256": "43a0b8fd5a2928500110039e43a5eed8480b918967083ea48dc3ab9f13c4a7fb"
+    },
+    {
+      "wheel": "torchaudio-2.8.0-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "f851d32e94ca05e470f0c60e25726ec1e0eb71cb2ca5a0206b7fd03272ccc3c8"
+    },
+    {
+      "wheel": "typing_extensions-4.15.0-py3-none-any.whl",
+      "sha256": "f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548"
+    },
+    {
+      "wheel": "safetensors-0.6.2-cp38-abi3-macosx_11_0_arm64.whl",
+      "sha256": "d6675cf4b39c98dbd7d940598028f3742e0375a6b4d4277e76beb0c35f4b843b"
+    },
+    {
+      "wheel": "pytest-8.3.4-py3-none-any.whl",
+      "sha256": "50e16d954148559c9a74109af1eaf0c945ba2d8f30f0a3d3335edde19788b6f6"
+    },
+    {
+      "wheel": "nltk-3.9.1-py3-none-any.whl",
+      "sha256": "4fa26829c5b00715afe3061398a8989dc643b92ce7dd93fb4585a70930d168a1"
+    },
+    {
+      "wheel": "pytz-2026.5-py3-none-any.whl",
+      "sha256": "e658af3757f9e26a9d25dd2aff38335acd92bc9104f890a894b2c1ba28311b03"
+    },
+    {
+      "wheel": "pypdf-6.18.1-py3-none-any.whl",
+      "sha256": "ee93a2665670ecf57ee81d197a4ca548f3dc15f9cefc56e59b8140866aaa3de5"
+    },
+    {
+      "wheel": "narwhals-2.3.0-py3-none-any.whl",
+      "sha256": "5507b1a9a9c2b1c55a627fdf6cf722fef2e23498bd14362a332c8848a311c321"
+    },
+    {
+      "wheel": "pip-25.2-py3-none-any.whl",
+      "sha256": "6d67a2b4e7f14d8b31b8b52648866fa717f45a1eb70e83002f4331d07e953717"
+    },
+    {
+      "wheel": "pyparsing-3.3.3-py3-none-any.whl",
+      "sha256": "ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4"
+    },
+    {
+      "wheel": "torch-2.8.0-cp313-cp313-macosx_14_0_arm64.whl",
+      "sha256": "7b677e17f5a3e69fdef7eb3b9da72622f8d322692930297e4ccb52fefc6c8211"
+    },
+    {
+      "wheel": "tokenizers-0.22.2-cp39-abi3-macosx_11_0_arm64.whl",
+      "sha256": "1e418a55456beedca4621dbab65a318981467a2b188e982a23e117f115ce5001"
+    },
+    {
+      "wheel": "psutil-7.1.2-cp36-abi3-macosx_11_0_arm64.whl",
+      "sha256": "2a486030d2fe81bec023f703d3d155f4823a10a47c36784c84f1cc7f8d39bedb"
+    },
+    {
+      "wheel": "numpy-2.4.2-cp313-cp313-macosx_14_0_arm64.whl",
+      "sha256": "8e4549f8a3c6d13d55041925e912bfd834285ef1dd64d6bc7d542583355e2e98"
+    },
+    {
+      "wheel": "pymysql-1.2.3-py3-none-any.whl",
+      "sha256": "14f1c68e2ed859243ae5ca41ffbe677027fc46bc136a9f0be8a4e928e5e7415a"
+    },
+    {
+      "wheel": "kiwisolver-1.5.1-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "77a4c8187a5948d7f8795adb765a3c7b553d07d86d88e43038fc32fc1fb9a3f3"
+    },
+    {
+      "wheel": "requests-2.32.4-py3-none-any.whl",
+      "sha256": "27babd3cda2a6d50b30443204ee89830707d396671944c998b5975b031ac2b2c"
+    },
+    {
+      "wheel": "fsspec-2025.9.0-py3-none-any.whl",
+      "sha256": "530dc2a2af60a414a832059574df4a6e10cce927f6f4a78209390fe38955cfb7"
+    },
+    {
+      "wheel": "rpds_py-0.27.1-cp313-cp313-macosx_11_0_arm64.whl",
+      "sha256": "1441811a96eadca93c517d08df75de45e5ffe68aa3089924f963c782c4b898cf"
+    }
+  ],
+  "before": {
+    "metrics.csv": "4b9e957c7146a7cd49ec28a44883114a964ee714cc0d72d5a1f3effedcf5b107",
+    "per_class_f1.csv": "714d37f906534e0dbcec2c37d5c38382a55e2aac5250bf1c9d1fe4d4a247c164",
+    "bootstrap_ci.json": "9428412b26d9516dd2bef3801d8940c24f9c9dc7de94438c31e6c469b64ffef9",
+    "error_analysis.md": "6f3606c9cb677f010c1d54240a181c9c315306229bbe84ae91cc42dca7db7185"
+  },
+  "after": {
+    "metrics.csv": "4b9e957c7146a7cd49ec28a44883114a964ee714cc0d72d5a1f3effedcf5b107",
+    "per_class_f1.csv": "714d37f906534e0dbcec2c37d5c38382a55e2aac5250bf1c9d1fe4d4a247c164",
+    "bootstrap_ci.json": "9428412b26d9516dd2bef3801d8940c24f9c9dc7de94438c31e6c469b64ffef9",
+    "error_analysis.md": "6f3606c9cb677f010c1d54240a181c9c315306229bbe84ae91cc42dca7db7185"
+  },
+  "required_results_unchanged": true,
+  "evaluation_changes": [
+    "results/figures/confusion_matrix_normalized_doc2vec_lr.png",
+    "results/figures/confusion_matrix_normalized_lda_lr.png",
+    "results/figures/confusion_matrix_normalized_majority_baseline.png",
+    "results/figures/confusion_matrix_normalized_tfidf_linear_svc.png",
+    "results/figures/confusion_matrix_normalized_tfidf_logistic_regression.png",
+    "results/figures/confusion_matrix_normalized_tfidf_lr_saga_underconverged.png",
+    "results/figures/confusion_matrix_normalized_transformer_legal_bert.png",
+    "results/figures/model_comparison.png",
+    "results/predictions/transformer_legal_bert.npz"
+  ],
+  "final_status": " M reports/slides.pptx\n M results/figures/confusion_matrix_normalized_doc2vec_lr.png\n M results/figures/confusion_matrix_normalized_lda_lr.png\n M results/figures/confusion_matrix_normalized_majority_baseline.png\n M results/figures/confusion_matrix_normalized_tfidf_linear_svc.png\n M results/figures/confusion_matrix_normalized_tfidf_logistic_regression.png\n M results/figures/confusion_matrix_normalized_tfidf_lr_saga_underconverged.png\n M results/figures/confusion_matrix_normalized_transformer_legal_bert.png\n M results/figures/model_comparison.png\n M results/predictions/transformer_legal_bert.npz\n",
+  "passed": true,
+  "byte_comparisons": {
+    "reports/slides.pptx": {
+      "original_sha256": "f70d9acd24bc85a123bf438cbad1d9c46579cb3f91b0c9aaf8f605e7b26f1095",
+      "rebuilt_sha256": "00de6dc0fa1113ed9417ffa678b82ead139aa66f3a8b57ffa9cf205f20497448",
+      "changed_zip_members": [
+        "ppt/media/image4.png"
+      ],
+      "member_content_equal": false
+    },
+    "results/figures/confusion_matrix_normalized_doc2vec_lr.png": {
+      "original_sha256": "6c9ecace95224b8c05104d931c18580ff483ca308e1e4fc2bb169231d0b8a74d",
+      "rebuilt_sha256": "6c060517c9df8c302cf67634f96ab6fbf037850a6f86ad971bbfd85f4931ceae",
+      "pixels_equal": true
+    },
+    "results/figures/confusion_matrix_normalized_lda_lr.png": {
+      "original_sha256": "6b757907f610b77179050ce7a969ee8807c6ea3d3ed754ac18ef1804f7a7d21b",
+      "rebuilt_sha256": "c7194b49659d14138eec3a04a9bda0749c81a6c4875fdd9d43c6171c2866e0ef",
+      "pixels_equal": true
+    },
+    "results/figures/confusion_matrix_normalized_majority_baseline.png": {
+      "original_sha256": "051f27ef2ad1b38f426da3ab2f928d5bb9d759a4cf750251efceccd11280c204",
+      "rebuilt_sha256": "4f9ed5d12b6fe42fc8bc9e5903858c2204f00057f2e96f3a2e881d7b6412563d",
+      "pixels_equal": true
+    },
+    "results/figures/confusion_matrix_normalized_tfidf_linear_svc.png": {
+      "original_sha256": "7e560131607dfb4ec4c836db0a4fd65199a7a426e9b867ff1a0e3f8b95177e20",
+      "rebuilt_sha256": "76a4cc539507ea827a265f2bc6145e54801b33ddbea541486fc95334ca4553da",
+      "pixels_equal": true
+    },
+    "results/figures/confusion_matrix_normalized_tfidf_logistic_regression.png": {
+      "original_sha256": "ca9d15875ed6dde686a3afeb3c7c8dff821a2f688685d71cdc19445ec349552c",
+      "rebuilt_sha256": "614e8fa90f926a044141a8e0e39cf8f521997d83cec5655d310ead7d4e651277",
+      "pixels_equal": true
+    },
+    "results/figures/confusion_matrix_normalized_tfidf_lr_saga_underconverged.png": {
+      "original_sha256": "e6ccb6f9cb29a6471ce62843161d49fa1506794f57a0154a5d5900c5a0ce5cc0",
+      "rebuilt_sha256": "e6e971c53bfe6064e91d46ddecbfbb9ff02a82bade134089677ddd6163aa951b",
+      "pixels_equal": true
+    },
+    "results/figures/confusion_matrix_normalized_transformer_legal_bert.png": {
+      "original_sha256": "f425b0a7d205c2cab73d08e3e6d73cd802526bbc976d4cdf569a6108b10023a0",
+      "rebuilt_sha256": "1fba82479845b714356cda4adbff8450dce8487e00fde5587f659644a8382185",
+      "pixels_equal": true
+    },
+    "results/figures/model_comparison.png": {
+      "original_sha256": "459595f7ec8906486bbdbaa40bd4a25a1376c6e04be14ab7f1536b88559e69e1",
+      "rebuilt_sha256": "594a41c7d9360b53f8bc0569fdfa51c30c1277b563b79fd0adc98a32dc42ee22",
+      "pixels_equal": true
+    },
+    "results/predictions/transformer_legal_bert.npz": {
+      "original_sha256": "5627a6459077044df8b840a12c4e61f8d79eb95e5b5acb7f0a975c1fce9ac737",
+      "rebuilt_sha256": "0f3706b07896b8127c11d3a912f0de2dc49c1d2305deed5c10f0138e88ea45dd",
+      "changed_zip_members": [],
+      "member_content_equal": true
+    }
+  },
+  "prediction_content_unchanged": true,
+  "unexpected_changes": []
+}

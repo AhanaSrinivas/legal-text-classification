@@ -1,0 +1,102 @@
+{
+  "commands": [
+    {
+      "command": [
+        "/Users/shriharinagesh/legal-text-classification/.venv/bin/python",
+        "run_all.py",
+        "--tests"
+      ],
+      "cwd": "/Users/shriharinagesh/legal-text-classification",
+      "environment_overrides": {
+        "HF_HUB_OFFLINE": "1",
+        "HF_DATASETS_OFFLINE": "1",
+        "LTC_RUN_BERT": "1"
+      },
+      "exit_code": 0,
+      "output": "PASS README blocks: completed\nUpdated 5 generated sections in README.md\nPASS PDF (page check): completed\nWrote reports/writeup.pdf (2 pages)\nPASS slides (count and notes): completed\nWrote reports/slides.pptx (15 slides, all with speaker notes)\nPASS VIVA_QA: completed\nWrote reports/VIVA_QA.md\nPASS number audit: completed\nPASS  README.md: 221 numbers checked, 0 unmatched\nPASS  reports/writeup.pdf: 140 numbers checked, 0 unmatched\nPASS  reports/slides.pptx: 266 numbers checked, 0 unmatched\nPASS  reports/VIVA_QA.md: 204 numbers checked, 0 unmatched\nPASS  reports/CONTRIBUTIONS.md: 25 numbers checked, 0 unmatched\nPASS  15 documented settings found in their source files\nPASS pytest: completed\n....................................................................     [100%]\n=============================== warnings summary ===============================\ntests/test_app.py::test_app_classifies_sample_with_tfidf_models\ntests/test_demo.py::test_downloaded_tfidf_model_predicts_sample[tfidf_linear_svc]\ntests/test_demo.py::test_downloaded_tfidf_model_predicts_sample[tfidf_logistic_regression]\n  /Users/shriharinagesh/legal-text-classification/.venv/lib/python3.13/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator TfidfTransformer from version 1.9.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\n  https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n    warnings.warn(\n\ntests/test_app.py::test_app_classifies_sample_with_tfidf_models\ntests/test_demo.py::test_downloaded_tfidf_model_predicts_sample[tfidf_linear_svc]\ntests/test_demo.py::test_downloaded_tfidf_model_predicts_sample[tfidf_logistic_regression]\n  /Users/shriharinagesh/legal-text-classification/.venv/lib/python3.13/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator TfidfVectorizer from version 1.9.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\n  https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n    warnings.warn(\n\ntests/test_app.py::test_app_classifies_sample_with_tfidf_models\ntests/test_demo.py::test_downloaded_tfidf_model_predicts_sample[tfidf_linear_svc]\n  /Users/shriharinagesh/legal-text-classification/.venv/lib/python3.13/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator LinearSVC from version 1.9.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\n  https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n    warnings.warn(\n\ntests/test_app.py::test_app_classifies_sample_with_tfidf_models\ntests/test_demo.py::test_downloaded_tfidf_model_predicts_sample[tfidf_logistic_regression]\n  /Users/shriharinagesh/legal-text-classification/.venv/lib/python3.13/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator SGDClassifier from version 1.9.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\n  https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n    warnings.warn(\n\ntests/test_demo.py::test_downloaded_legal_bert_predicts_sample\n  /Users/shriharinagesh/legal-text-classification/.venv/lib/python3.13/site-packages/transformers/models/bert/tokenization_bert.py:104: DeprecationWarning: Deprecated in 0.9.0: WordPiece.__init__ will not create from files anymore, try `WordPiece.from_file` instead\n    self._tokenizer = Tokenizer(WordPiece(self._vocab, unk_token=str(unk_token)))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n68 passed, 11 warnings in 6.08s\n"
+    },
+    {
+      "command": [
+        "/Users/shriharinagesh/legal-text-classification/.venv/bin/python",
+        "-m",
+        "pytest",
+        "tests",
+        "-q",
+        "-rs"
+      ],
+      "cwd": "/Users/shriharinagesh/legal-text-classification",
+      "environment_overrides": {
+        "HF_HUB_OFFLINE": "1",
+        "HF_DATASETS_OFFLINE": "1",
+        "LTC_RUN_BERT": "1"
+      },
+      "exit_code": 0,
+      "output": "....................................................................     [100%]\n=============================== warnings summary ===============================\ntests/test_app.py::test_app_classifies_sample_with_tfidf_models\ntests/test_demo.py::test_downloaded_tfidf_model_predicts_sample[tfidf_linear_svc]\ntests/test_demo.py::test_downloaded_tfidf_model_predicts_sample[tfidf_logistic_regression]\n  /Users/shriharinagesh/legal-text-classification/.venv/lib/python3.13/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator TfidfTransformer from version 1.9.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\n  https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n    warnings.warn(\n\ntests/test_app.py::test_app_classifies_sample_with_tfidf_models\ntests/test_demo.py::test_downloaded_tfidf_model_predicts_sample[tfidf_linear_svc]\ntests/test_demo.py::test_downloaded_tfidf_model_predicts_sample[tfidf_logistic_regression]\n  /Users/shriharinagesh/legal-text-classification/.venv/lib/python3.13/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator TfidfVectorizer from version 1.9.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\n  https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n    warnings.warn(\n\ntests/test_app.py::test_app_classifies_sample_with_tfidf_models\ntests/test_demo.py::test_downloaded_tfidf_model_predicts_sample[tfidf_linear_svc]\n  /Users/shriharinagesh/legal-text-classification/.venv/lib/python3.13/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator LinearSVC from version 1.9.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\n  https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n    warnings.warn(\n\ntests/test_app.py::test_app_classifies_sample_with_tfidf_models\ntests/test_demo.py::test_downloaded_tfidf_model_predicts_sample[tfidf_logistic_regression]\n  /Users/shriharinagesh/legal-text-classification/.venv/lib/python3.13/site-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator SGDClassifier from version 1.9.1 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\n  https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations\n    warnings.warn(\n\ntests/test_demo.py::test_downloaded_legal_bert_predicts_sample\n  /Users/shriharinagesh/legal-text-classification/.venv/lib/python3.13/site-packages/transformers/models/bert/tokenization_bert.py:104: DeprecationWarning: Deprecated in 0.9.0: WordPiece.__init__ will not create from files anymore, try `WordPiece.from_file` instead\n    self._tokenizer = Tokenizer(WordPiece(self._vocab, unk_token=str(unk_token)))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n68 passed, 11 warnings in 6.05s\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--stat"
+      ],
+      "cwd": "/Users/shriharinagesh/legal-text-classification",
+      "environment_overrides": {
+        "HF_HUB_OFFLINE": "1",
+        "HF_DATASETS_OFFLINE": "1",
+        "LTC_RUN_BERT": "1"
+      },
+      "exit_code": 0,
+      "output": " scripts/audit_numbers.py | 4 ++++\n 1 file changed, 4 insertions(+)\n"
+    },
+    {
+      "command": [
+        "git",
+        "shortlog",
+        "-sne",
+        "HEAD"
+      ],
+      "cwd": "/Users/shriharinagesh/legal-text-classification",
+      "environment_overrides": {
+        "HF_HUB_OFFLINE": "1",
+        "HF_DATASETS_OFFLINE": "1",
+        "LTC_RUN_BERT": "1"
+      },
+      "exit_code": 0,
+      "output": "    16\tAhana Srinivas <ahanass2505@gmail.com>\n     8\tShrihari Nagesh <shriharinagesh10@gmail.com>\n"
+    }
+  ],
+  "coverage": {
+    "loose": {
+      "matched": 525,
+      "total": 1001,
+      "percent": "52.45%"
+    },
+    "strict": {
+      "matched": 205,
+      "total": 1001,
+      "percent": "20.48%"
+    }
+  },
+  "negative_control": {
+    "count": 2,
+    "unmatched": [
+      "'0.6421' in '...Fake macro F1 0.6421 and accuracy 83.7%....'",
+      "'83.7' in '...Fake macro F1 0.6421 and accuracy 83.7%....'"
+    ]
+  },
+  "pdf_pages": 2,
+  "slides": 15,
+  "notes": 15,
+  "source_commit": "1791408df2cd6cd1ddcf58fcb806c2e4a6e8fa8b",
+  "artifact_diff": "",
+  "sklearn_version": "1.7.2",
+  "artifact_sha256": {
+    "reports/writeup.pdf": "f83f62732836b82ec21384fc47cac274b7c0d95880dea3df5f090a003c68e13b",
+    "reports/slides.pptx": "f70d9acd24bc85a123bf438cbad1d9c46579cb3f91b0c9aaf8f605e7b26f1095"
+  },
+  "visual_review": "Rendered every write-up page and every slide with bundled Poppler and LibreOffice. Inspected all pages/slides: no clipping or overflow observed. LibreOffice emitted fontconfig warnings; rendered content remained readable. Original artifacts were unchanged.",
+  "visual_tools": {
+    "pdftoppm": "/Users/shriharinagesh/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/pdftoppm",
+    "soffice": "/Users/shriharinagesh/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/override/soffice"
+  }
+}
