@@ -232,7 +232,7 @@ def _style_axis(ax):
 FIG_W, FIG_H = 4.0, 3.05  # inches; both figures share the size
 
 
-def ci_figure():
+def ci_figure(title="A. Model comparison"):
     """Test macro F1 with bootstrap CIs, drawn from results/ at build time."""
     f = facts()
     models = [m for m in MODEL_ORDER if m != "majority_baseline"][::-1]
@@ -247,7 +247,8 @@ def ci_figure():
     ax.set_yticks(range(len(models)), labels)
     ax.set_xlabel("Test macro F1 (dot) with 95% bootstrap CI (bar)", fontsize=6.6)
     ax.set_xlim(0.2, 0.75)
-    ax.set_title("A. Model comparison", fontsize=7.4, loc="left", color="#1f2933")
+    if title:
+        ax.set_title(title, fontsize=7.4, loc="left", color="#1f2933")
     _style_axis(ax)
     fig.tight_layout(pad=0.3)
     return _png(fig)
