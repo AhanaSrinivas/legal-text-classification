@@ -54,6 +54,9 @@ CONFIG = {
     "bert_warmup_pct": ("10", "scripts/04_train_transformer.py", "int(total_steps * 0.1)"),
     "bert_first_run_f1": ("0.5171", "docs/RUN_LOG.md", "`0.5171` from the"),
     "fixture_chars": ("3,000", "src/data.py", "txt[:3000]"),
+    "ci_lower_pct": ("2.5", "scripts/evaluate_all.py", "np.percentile(values, 2.5)"),
+    "ci_upper_pct": ("97.5", "scripts/evaluate_all.py", "np.percentile(values, 97.5)"),
+    "bert_content_tokens": ("510", "src/demo.py", "usable = limit - 2  # [CLS] and [SEP]"),
 }
 
 
@@ -195,6 +198,10 @@ def facts():
 
     majority = _json("majority_baseline.json")
     f["majority_class"] = majority["train_majority_class_name"]
+    f["test_majority_class"] = majority["test_majority_class_name"]
+    f["test_majority_acc"] = _f3(majority["test_empirical_majority_accuracy"])
+    for name, count in eda["class_distributions"]["validation"].items():
+        f[f"val_count_{_slug(name)}"] = _int(count)
 
     classical = _json("classical_selection.json")
     f["svc_c"] = str(classical["tfidf_linear_svc"]["params"][0])
@@ -268,6 +275,10 @@ def facts():
 
     ea = _parse_error_analysis()
     f.update({k: (str(v) if isinstance(v, int) else v) for k, v in ea.items()})
+    for model, short in (("tfidf_linear_svc", "svc"), ("transformer_legal_bert", "bert")):
+        accuracies = [acc for m, _, _, acc in ea["ea_quartiles"] if m == model]
+        f[f"ea_{short}_q_min"], f[f"ea_{short}_q_max"] = _f3(min(accuracies)), _f3(max(accuracies))
+        f[f"ea_{short}_q_longest"] = _f3(accuracies[-1])
     n_svc, a_svc, b_svc = ea["ea_svc_pairs"][0]
     f["ea_svc_top_pair"] = f"{a_svc} → {b_svc} ({n_svc})"
     n_bert, a_bert, b_bert = ea["ea_bert_pairs"][0]
